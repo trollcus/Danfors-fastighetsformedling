@@ -1,0 +1,1053 @@
+@import "../assets/stylesheets/bootstrap"
+
+$blue: #1E5D9D
+$lightblue: #4487BA
+$grey: #595959
+$lightgrey: #FAFAFA
+$white: #FFF
+$bluegradient: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%)
+$boxshadow: 0 0 24px 0 rgba(0,0,0,0.08)
+$radius: 7px
+
+@keyframes shadow
+  0%
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+  100%
+    box-shadow: 0 0 34px 0 rgba(0,0,0,0.20)
+@keyframes shadow-reverse
+  0%
+    box-shadow: 0 0 34px 0 rgba(0,0,0,0.20)
+  100%
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+
+@keyframes button-move
+  0%
+    top: 0px
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+  100%
+    top: -2px
+    box-shadow: 0 0 34px 0 rgba(0,0,0,0.20)
+@keyframes button-move1
+  0%
+    top: -2px
+
+    box-shadow: 0 0 34px 0 rgba(0,0,0,0.20)
+  100%
+    top: 0px
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+
+.btn-show
+  background-color: $white
+  color: $blue
+  transition: 0.5s
+  padding: 0.7em 2.5em
+  &:hover
+    background-color: $blue
+    color: white
+
+.btn-danfors-white
+  background: none
+  border: 1px solid #FFF
+  color: $white
+  padding: 0.7em 2em
+  transition: 0.3s
+  cursor: pointer
+  box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+  position: relative
+  animation: button-move1 0.2s
+  animation-fill-mode: forwards
+  animation-timing-function: ease-out
+
+  &:hover
+
+    animation-fill-mode: forwards
+    animation-timing-function: ease-out
+    border-color: none
+    color: $blue
+    background-color: $white
+
+.hero-danfors
+  height: 60vh
+  padding: 20% 0 30% 0
+  color: #FFF
+  background-image: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%)
+  .hero-text
+    letter-spacing: 0.0125em
+    line-height: 1.3em
+    margin-bottom: 0.9em
+  svg
+    position: absolute
+    bottom: -6%
+    width: 100%
+    height: 10vw
+
+
+.search
+  background-color: #FFF
+  box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+  border-radius: 7px
+  margin-top: -5em
+  padding-top: 1em
+  padding-bottom: 1em
+  label
+    font-size: 1.3em
+    font-weight: 300
+  button
+    margin-top: 3.25em
+    padding: 0.7em 0
+    width: 100%
+
+  .danfors-search
+    border: none
+    background-color: #FAFAFA
+    padding: 1.6em 0.9em
+    border-radius: 7px
+
+.list-hero
+  height: 60vh
+  overflow: hidden
+  z-index: 1
+  position: relative
+  background-size: cover
+  background-attachment: fixed
+  background-repeat: no-repeat
+  background-position: center top
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    height: 60vh
+    width: 100%
+    transition: all 0.8s
+    opacity: 0.1
+    background-color: black
+    background-size: 100% 100%
+    overflow: hidden
+
+
+  img
+    width: 100vw
+    z-index: 1
+.listing-content
+  z-index: 20
+  position: relative
+  .desc_agent
+    margin-top: 3em
+  .desc-agent-item
+    background-color: $lightgrey
+    padding-left: 0
+    &:first-child
+      margin-left: 37.5px
+
+  .desc
+    padding-top: 1em
+    padding-bottom: 1em
+  .desc-text
+    padding: 0.3em 1.5em 1.5em 1.5em
+
+  .container
+    background-color: #FFF
+    box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+    border-radius: 7px
+    margin-top: -8em
+    padding-top: 2em
+    padding-bottom: 1.5em
+    z-index: 50
+
+
+    .img-wrap
+      margin: 2em 0
+
+.selected-listing
+  h1
+    color: #595959
+    font-weight: 400
+    margin-top: 1.5em
+
+.listing
+  box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
+  padding: 0
+  border-radius: 7px
+  overflow: hidden
+  position: relative
+  color: #595959
+  a
+    color: #595959
+    text-decoration: none
+  &:hover
+    .list-image
+      &:before
+        opacity: 0.3
+
+
+
+
+.list-text-wrap
+  position: absolute
+  width: 90%
+  bottom: 100px
+  padding: 1em
+  color: white
+  text-decoration: none
+  font-size: 120%
+  z-index: 2
+.list-image
+  overflow: hidden
+  object-fit: fill
+  max-height: 357.641px
+  img
+    transition: 0.8s
+  &:before
+    content: ""
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    transition: all 0.8s
+    opacity: 0.1
+    background-color: black
+    background-size: 100% 100%
+
+.list-img
+  background-size: cover
+  background-repeat: no-repeat
+  height: 24em
+  background-position: center center
+
+
+
+.list-items
+  z-index: 2
+  position: relative
+  background-color: white
+  padding: 0.5em 0
+  color: $blue
+  font-size: 1.1em
+  .list-omrade
+    color: $grey
+
+.list-section
+  margin: 6em 0
+.search-listing-box
+  margin: 15px
+  padding: 0
+
+.meet-danfors
+  padding-top: 6em
+  padding-bottom: 6em
+  background-color: $lightgrey
+  p
+    color: $grey
+    font-weight: 300
+    line-height: 1.8em
+    font-size: 120%
+    margin: 1em auto
+  img
+    width: 75%
+    border-radius: 100%
+  .team-member-danfors
+    margin-top: 1em
+  .team-text
+    padding-top: 3.5em
+
+.listing-items
+  margin-top: 5em
+  .tabs-ul
+    margin-left: 0 !important
+    margin-bottom: 2em
+    padding-top: 1.3em
+    background-color: $blue
+    li
+      a
+        background-color: $blue
+        color: $white
+        border: none
+    .active
+      a
+        background-color: $white
+        color: $lightblue
+        border: none
+
+.bilder-field
+  display: flex
+  justify-content: center
+  margin-bottom: 4em
+  height: 100%
+  a
+    height: 100%
+    img
+      height: 100%
+      width: 100%
+
+.contact-cta
+  background-image: $bluegradient
+  padding: 10em 0
+  color: $white
+  hr
+    width: 2em !important
+    height: 0.3em !important
+    background-color: $white
+
+.tab-content
+  overflow: auto
+  height: 100%
+  padding-top: 2em
+  padding-bottom: 4em
+
+.maklare-bild
+  padding: 0
+  max-height: 150px
+  max-width: 255px
+  overflow: hidden
+  img
+    min-height: 100%
+.list-price
+  color: $blue
+  font-weight: 300
+
+.share-list
+  text-align: right
+
+// .navbar-header
+//   float: left
+//   padding: 15px
+//   text-align: center
+//   width: 100%
+//   position: absolute
+//   top: 16px
+// .navbar-default
+//   background-color: transparent
+//   color: transparent
+//   border: none
+//   .navbar-nav
+//     li
+//       margin-right: 2em
+//       a
+//         color: $white
+//         font-size: 1.1em
+//     .open
+//
+//       a
+//         &:focus
+//           background: rgba(255,255,255,0.30)
+// .site-header
+//   position: absolute
+//   width: 100%
+//
+// .navbar-brand
+//   float: none
+//
+// .dropdown-menu
+//   background-color: $lightblue
+//   border-radius: 7px !important
+//   overflow: hidden
+//   li
+//     background-color: $lightblue
+// .navbar-header
+//   z-index: 101
+.icon-active-span
+  background-color: $blue !important
+  color: $blue
+
+#masthead
+  z-index: 100
+  padding-top: 1.5em
+  position: absolute
+  width: 100%
+  transition: 0.5s
+  color: $white
+.navbar
+  background-color: transparent
+  border: none
+  z-index: 101
+  .icon-bar
+    color: $white
+    background-color: $white
+  li
+    a
+      color: white
+
+  .nav-padding
+    padding-left: 10%
+    padding-right: 10%
+  .navbar-brand
+    background-image: url('http://localhost:8888/wp-content/themes/danfors/assets/images/logo_vit.png')
+    width: 7.5em
+    height: 3em
+    background-size: cover
+// .navbar-collapse
+//   background-color: $white
+//   li
+//     a
+//       color: $blue !important
+
+.navbar-brand-fixed
+  background-image: url('http://localhost:8888/wp-content/themes/danfors/assets/images/logo_bla.png') !important
+.active-nav
+  background-color: white
+  color: $grey !important
+  position: fixed !important
+  top: 0
+  z-index: 101
+.active-nav-toggle
+  background-color: white
+.link-fixed
+  color: $blue !important
+.link-top
+  padding-top: 20px !important
+  padding-bottom: 20px !important
+  transition: 0.25s
+  border-bottom: 1px solid transparent
+  cursor: pointer
+  &:hover
+    border-bottom: 1px solid $white
+    background: transparent !important
+
+
+.home-list-desc
+  opacity: 0
+  display: none
+  animation: text-move 0.3s
+  position: relative
+  transition: 2s
+
+
+
+.home-list-title
+  position: relative
+  transition: 2s
+  animation: text-move1 0.32s
+  animation-fill-mode: forwards
+  animation-timing-function: ease-out
+
+.listing
+  &:hover
+    .home-list-desc
+      display: block
+      animation: text-move 0.32s
+      animation-fill-mode: forwards
+      animation-timing-function: ease-out
+    .home-list-title
+      animation: text-move 0.3s
+      animation-timing-function: ease-out
+      animation-fill-mode: forwards
+
+
+@keyframes text-move
+  0%
+    opacity: 0
+    top: 100px
+
+  98%
+    opacity: 1
+    top: -1px
+  100%
+    opacity: 1
+    top: 0px
+
+@keyframes text-move1
+  0%
+    top: -100px
+
+  98%
+    top: 1px
+  100%
+    top: 0px
+
+.list-item-house
+  margin-bottom: 2em
+  &:hover
+    cursor: pointer
+
+.responsive
+  ul
+    margin: 0
+    padding: 0
+
+.slick-prev
+  position: absolute
+  bottom: 50%
+  right: 100%
+
+.slick-next
+  position: absolute
+  bottom: 50%
+  left: 100%
+
+
+.slidebtn
+  background-color: $blue
+  color: $white
+  border-radius: 100%
+  opacity: 0.3
+  outline: none
+  transition: 0.2s
+  &:visited
+    outline: none
+  &:hover
+    opacity: 0.8
+
+.slick-dots
+  display: flex
+  justify-content: center
+  button
+    opacity: 0
+    padding-left: 0
+    padding-right: 2px
+
+  li
+    list-style: none
+    margin-right: 0.4em
+    margin-left: 0.4em
+    width: 0.6em
+    height: 0.6em
+    border-radius: 100%
+
+#slick-slide00
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide01
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide02
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide03
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide04
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide05
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide06
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide07
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+#slick-slide08
+  background-color: $blue
+  color: $blue
+  opacity: 0.3
+.slick-active
+  opacity: 0.8 !important
+
+.articles
+  .article
+    color: $grey
+    padding-left: 0
+    overflow: hidden
+    margin-top: 2.5em
+    margin-left: 60px
+    height: 100%
+    border:
+      color: rgba(0, 0, 0, 0.05)
+      width: 1px
+      style: solid
+      radius: 7px
+    // border:
+    //   color: $lightgrey
+    //   radius: 7px
+    //   size: 0.5px
+    //   style: solid
+  .article-img
+    padding: 0
+    overflow: hidden
+    img
+      min-height: 14em
+      min-width: 100%
+      object-fit: cover
+  .article-text
+    margin-top: 0.6em
+  .article-row
+    margin-top: 0.8em
+    text-align: right
+  .article-btn
+    background-color: $white
+    border: none
+    z-index: 100
+    color: $grey
+    font-weight: 300
+    padding: 0
+    font-size: 16px
+    // &:before
+    //   background-color: $lightgrey
+    //   padding: 1em 3em
+    //   z-index: 1
+    //   content: ' '
+    //   color: $lightgrey
+    //   position: absolute
+  .kunskap-title
+    font-weight: 400
+    font-size: 15px
+    color: black
+  .kunskap-exc
+    color: $grey
+    font-size: 15px
+  .tags
+    p
+      a
+        color: $blue
+        cursor: pointer
+        &:visited
+          color: $blue
+        &:hover
+          color: $lightblue
+          text-decoration: none
+.test
+  background-repeat: no-repeat
+  background-size: cover
+  height: 16em
+.kunskap-search
+  padding-bottom: 8em
+  padding-top: 3em
+
+.search-kunskap-box
+  ul
+    justify-content: flex-start !important
+    li
+      margin-right: 3em
+    .sf-field-sort_order
+      width: auto !important
+    .sf-field-reset
+      display: flex
+      align-items: flex-end
+    .search-filter-reset
+      padding: 1.3em 2.9em
+      font-size: 18.2px
+      font-weight: 300
+      position: relative
+      bottom: 0
+      background-color: $white
+      color: $blue
+      border: 1px solid $blue
+      transition: 0.5s
+      &:hover
+        background-color: $blue
+        color: $white
+
+
+.test-a
+  height: 100%
+
+
+.kunskapsbank-title
+  margin-top: 1.5em
+  margin-bottom: 0.6em
+.articles-btn
+  margin-top: 3em
+  margin-bottom: 3em
+  button
+    background-color: $white
+    color: $blue
+    transition: 0.5s
+    padding: 0.7em 2.5em
+    &:hover
+      background-color: $blue
+      color: white
+
+
+body
+  overflow-x: hidden
+
+.danfors-blog
+  h1
+    margin-top: 2.5em
+    margin-bottom: 1em
+  p
+    margin-bottom: 2.5em
+    line-height: 1.9em
+
+
+
+.cards
+  overflow: auto
+  padding: 2.5em
+  height: 100%
+a
+  text-decoration: none
+.blog-card-var
+  background-color: $white
+  max-width: 285px
+  h4
+    padding-right: 1em
+    padding-left: 1em
+    text-align: left
+    color: $grey
+  border:
+    color: rgba(0, 0, 0, 0.05)
+    width: 1px
+    style: solid
+  border-radius: $radius
+  margin-bottom: 2.5em
+  margin-right: 3%
+  padding-bottom: 0.5em
+  transition: 0.3s
+  cursor: pointer
+  padding-left: 0
+  padding-right: 0
+  overflow: hidden
+.blog-card-img
+  padding: 0
+  height: 9em
+  width: 100%
+  margin-bottom: 1.5em
+  background:
+    size: cover
+    repeat: no-repeat
+    position: center center
+.author-blog
+  display: flex
+  flex-direction: row
+  margin-top: 3.5em
+  .author-blog-info
+    flex-direction: column
+    display: flex
+    text-align: left
+    align-items: flex
+    justify-content: center
+    color: $grey
+    font-size: 0.8em
+    .author-date
+      opacity: 0.6
+  .author-img
+    width: 3em
+    height: 3em
+    border-radius: 50%
+    margin-right: 1em
+    background:
+      size: cover
+      repeat: no-repeat
+      position: center center
+    text-align: left
+.blog-card
+  background-color: $white
+  box-shadow: $boxshadow
+  border-radius: $radius
+  margin-bottom: 2.5em
+  margin-right: 3%
+  padding-top: 2em
+  padding-bottom: 2em
+  transition: 0.3s
+  cursor: pointer
+  animation: shadow-reverse 0.3s
+  animation-fill-mode: forwards
+  animation-timing-function: ease-out
+  &:hover
+    transform: scale(1.03)
+    animation: shadow 0.3s
+    animation-fill-mode: forwards
+    animation-timing-function: ease-out
+  hr
+    width: 2.4em
+    background-color: $blue
+    height: 0.3em
+  h4
+
+    color: $grey
+    &:first-child
+      line-height: 1.25em
+
+.searchandfilter
+  .sf-range-min, .sf-range-max
+    min-width: 100% !important
+
+.search-func
+  select
+    padding: 1em 0.9em
+    border: none
+    background-color: $lightgrey
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    &:-ms-expand
+      display: none
+    &:focus
+      outline-color: $blue
+    &:visited
+      outline: none
+  ul
+    padding-left: 10px
+    padding-right: 10px
+    margin-left: 0
+    display: flex
+    flex-direction: row
+    list-style: none
+    justify-content: space-between
+    li
+      &:nth-child(1)
+        width: 35%
+        label
+          width: 100%
+          input
+            width: 100%
+      &:nth-child(2)
+        width: 35%
+    h4
+      font-weight: 300
+    .sf-input-text
+      padding: 1em 1.8em
+    input
+      border: none
+      background-color: $lightgrey
+      padding: 1em 0.9em
+      border-radius: 7px
+      &:focus
+        outline-color: $blue
+    .sf-field-submit
+      width: 15%
+      display: flex
+      justify-content: flex-end
+      align-items: flex-end
+
+      input
+        padding: 1em 2.5em
+        font-size: 18px
+        height: 3em
+        width: 100%
+        background-color: $white
+        color: $blue
+        transition: 0.5s
+        border: 1px solid $blue
+        &:hover
+          background-color: $blue
+          color: $white
+        &:focus
+          outline: none
+        &:active
+          outline: none
+    .sf-field-post-meta-utgangspris
+
+      div
+        label
+          margin-left: 0.4em
+          width: 45%
+          &:first-child
+            margin-left: 0
+            margin-right: 0.4em
+          &:nth-child(2)
+            margin-left: 0.4em
+          input
+            padding: 1em 1.6em
+            width: 100%
+
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none
+  margin: 0
+
+.breadcrumb
+  background-color: $white
+  color: $blue
+  margin-left: 0
+  padding-left: 0
+  padding-right: 0
+  a
+    color: $blue
+    &:hover
+      text-decoration: none
+      cursor: pointer
+    &:visited
+      text-decoration: $blue
+.top-btn-class
+  margin: 2em 2em
+  position: fixed
+  bottom: 0px
+  right: 0px
+.btn-up
+  border-radius: 100%
+  background-color: $white
+  opacity: 0.8
+  border: 1px solid $blue
+  padding: 1em 1em
+  margin: 0 auto
+  box-shadow: 0 0px 12px 0 rgba(255,255,255,0.25)
+  svg
+    fill: $blue
+    stroke: $blue
+    color: $blue
+    &:hover
+      cursor: pointer
+    #chevron-small-up
+      fill: $blue
+
+// Sökresultat för bostadssidan
+.posts-navigation
+  width: 100%
+  padding: 2em 10%
+.search-page-listing-box
+  margin-bottom: 4em
+.search-results-listing
+  padding-top: 2em
+  overflow: auto
+  height: 100%
+  width: 100%
+
+.listing-search
+  display: flex
+
+
+
+// Single kunskap
+.kunskap-single-content
+  padding-top: 1.5em
+  padding-bottom: 1.5em
+  font-size: 18px
+  font-weight: 300
+  color: $grey
+  .breadcrumb
+    font-weight: 400
+    font-size: 16px
+.content-kunskap
+  h1
+    color: #3C3C3C
+    margin-bottom: 15px
+    margin-top: 35px
+  p
+    font-size: 20px
+    color: $grey
+    font-weight: 300
+    letter-spacing: 0.02em
+    line-height: 1.5em
+
+// Sök inläg
+.blog-result
+  display: flex
+  flex-wrap: wrap
+  a
+    div
+      min-width: 190px
+      min-height: 106px
+      margin-right: 1em
+      margin-left: 1em
+.search-blog-section
+  margin: 0
+.search-blog
+  padding: 0
+  .sf-label-radio
+    width: auto !important
+  ul
+    flex-direction: column
+    width: 100%
+    padding: 0
+    li
+      width: 100% !important
+      ul
+        display: flex
+        flex-direction: column
+
+.blog-head
+  margin-bottom: 3em
+
+@media (min-width: 1200px)
+  .content-kunskap
+    padding: 0 8em
+
+
+@media (min-width: 1205px)
+  .danfors-blog
+    p
+      margin-bottom: 2.5em
+      padding-left: 2em
+      padding-right: 2em
+
+@media (max-width: 1200px)
+  .articles
+    .article
+      margin-left: 0 !important
+
+
+
+@media (max-width: 1024px)
+  .listing
+    .home-list-title
+      animation: none
+    .home-list-desc
+      animation: none
+      display: none !important
+    &:hover
+      .home-list-title
+        animation: none
+      .home-list-desc
+        animation: none
+        &:hover
+          display: none !important
+        &:focus
+          display: none !important
+        &:visited
+          display: none !important
+
+
+@media (max-width: 1100px)
+  .hero-danfors
+    height: 62vh
+    padding: 26% 0 30% 0
+  .hero-items
+    margin-top: -5%
+@media (max-width: 800px)
+  .hero-items
+    margin-top: 0%
+  .search-func
+    ul
+      display: list-item
+    .sf-field-search
+      width: 100% !important
+    .sf-field-post-meta-utgangspris
+      width: 100% !important
+      label
+        // width: 48% !important
+
+    .sf-field-submit
+      width: 100% !important
+      input
+        width: 100% !important
+@media (max-width: 768px)
+  .art-row
+    padding-left: 1.5em
+    padding-right: 1.5em
+
+
+@media (max-width: 767px)
+  .selected-listing
+    margin-top: 18em
+@media (max-width: 699px)
+  .selected-listing
+    h1
+      margin-top: 3.5em
+@media (max-width: 698px)
+  .sf-meta-range
+    display: flex
+    flex-direction: column
+    align-items: center
+    label
+      margin: 0 !important
+      width: 100% !important
+
+@media (max-width: 500px)
+  .hero-danfors
+    height: 72vh
+    padding: 38% 0 30% 0
+  .search
+    margin-top: 0
+  .selected-listing
+    h1
+      margin-top: 5.5em
+      margin-bottom: -0.5em
+
+@media (max-width: 376px)
+  .hero-danfors
+    padding: 43% 0 30% 0
+    .hero-text
+      font-size: 2.3em
