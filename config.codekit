@@ -121,6 +121,28 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/images\/tillsalu.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2.80346e+06,
+		"inputAbbreviatedPath": "\/assets\/images\/tillsalu.jpg",
+		"outputAbbreviatedPath": "\/assets\/images\/tillsalu.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/images\/tillsalu1.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.91111e+06,
+		"inputAbbreviatedPath": "\/assets\/images\/tillsalu1.jpg",
+		"outputAbbreviatedPath": "\/assets\/images\/tillsalu1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/stylesheets\/_bootstrap-compass.scss": {
 		"createSourceMap": 0,
 		"debugStyle": 0,

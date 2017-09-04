@@ -6543,6 +6543,41 @@ button.close {
     color: #1E5D9D;
     background-color: #FFF; }
 
+.hero-tillsalu {
+  background: url("http://localhost:8888/wp-content/themes/danfors/assets/images/tillsalu.jpg");
+  height: 60vh;
+  padding: 20% 0 30% 0;
+  color: #FFF;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+  .hero-tillsalu:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+    opacity: 0.4;
+    background-image: -webkit-linear-gradient(221deg, #1E5D9D 0%, #4487BA 100%);
+    background-image: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%);
+    background-size: 100% 100%;
+    overflow: hidden;
+    z-index: 0; }
+  .hero-tillsalu .hero-text {
+    letter-spacing: 0.0125em;
+    line-height: 1.3em;
+    margin-bottom: 0.9em;
+    color: #FFF;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.18); }
+  .hero-tillsalu svg {
+    position: absolute;
+    bottom: -6%;
+    width: 100%;
+    height: 10vw; }
+
 .hero-danfors {
   height: 60vh;
   padding: 20% 0 30% 0;
