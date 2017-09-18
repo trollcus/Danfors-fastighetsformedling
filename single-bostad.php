@@ -45,14 +45,13 @@ get_header(); ?>
 
                     	?>
 
-                      <div class="col-sm-4 maklare-bild">
-                        <?php the_post_thumbnail(); ?>
+                      <div class="col-xs-4 maklare-bild" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)">
                       </div>
-                      <div class="col-sm-8">
+                      <div class="col-xs-8">
                         <h4><?php the_title(); ?></h4>
                         <p>Ansvarig Mäklare</p>
-                        <h6>Telefonnummer: <?php echo get_field('maklare_telefon')?></h6>
-                        <h6>Mail: <a href="mailto:<?php echo get_field('maklare_mail')?>"><?php echo get_field('maklare_mail')?></a></h6>
+                        <h5>Telefonnummer: <a href="tel:<?php echo get_field('maklare_telefon')?>"><?php echo get_field('maklare_telefon')?></a></h5>
+                        <h5>Mail: <a href="mailto:<?php echo get_field('maklare_mail')?>"><?php echo get_field('maklare_mail')?></a></h5>
 
                       </div>
 
@@ -62,16 +61,16 @@ get_header(); ?>
                     <?php endif; ?>
 
                 </div>
-                <div class="col-sm-5 col-sm-offset-1 desc-agent-item">
+                <!-- <div class="col-sm-5 col-sm-offset-1 desc-agent-item">
                   <div class="col-sm-4">
                     <img src="wp-content/themes/danfors/assets/images/Oval2.png" alt="">
                   </div>
                   <div class="col-sm-8">
                     <h4>Håkan Danfors &nbsp; &nbsp;<span class="glyphicon glyphicon-envelope"></span></h4>
                     <h6>0730 46 88 34</h6>
-                    <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod cupiditate iste sed. Fuga porro quaerat, nihil rem nam voluptatibus cumque excepturi itaque, s</p> -->
+
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
 
@@ -106,7 +105,7 @@ get_header(); ?>
                       <?php foreach( $images as $image ): ?>
                           <div class="bilder-field">
 
-                              <a href="<?php echo $image['url']; ?>">
+                              <a href="<?php echo $image['url']; ?>" data-rel=”lightbox”>
                                    <img class="list-img" src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
                               </a>
                               <p><?php echo $image['caption']; ?></p>
@@ -136,80 +135,85 @@ get_header(); ?>
 
                 <div class="col-sm-12 tab-pane fade" id="beskrivning">
                   <div class="container">
-                    <div class="col-sm-8 col-sm-offset-2">
+                    <div class="col-md-10 col-md-offset-1 content-kunskap">
                       <?php the_field('beskrivning'); ?>
                     </div>
                   </div>
                 </div>
                 <div class="col-sm-12 tab-pane fade" id="omradet">
                   <div class="container">
-                    <div class="col-sm-8 col-sm-offset-2">
+                    <div class="col-md-10 col-md-offset-1 content-kunskap">
                       <?php the_field('omradet'); ?>
                     </div>
                   </div>
                 </div>
-
+								<?php
+										$rows = get_field('byggnadsinfo');
+										if($rows): ?>
                 <div class="col-sm-12 tab-pane fade" id="fakta">
-                  <div class="container-fluid">
-                    <div class="row">
-                    <div class="col-md-3 col-md-offset-3">
+                  <div class="container">
+
+                    <div class="col-md-4 col-md-offset-2">
                       <table class="table table-striped">
                       <?php
-                          $rows = get_field('byggnadsinfo');
-                          if($rows)
-                          {
+
                             echo '<h3>Byggnadsinfo</h3>';
 
                           	foreach($rows as $row)
                           	{
+															if($row['byggnad_typ_av_data']['0']) {
                           		echo '<tr><td><h5>' . $row['byggnad_typ_av_data']['0'] . ':</h5></td><td><h5>' . $row['byggnad_antaltyp'] .'</h5></td></tr>';
+															}
                           	}
-                          }
+  												?>
 
-                        ?>
                       </table>
 
                     </div>
+										<?php endif; ?>
 
 
-                    <div class="col-md-3">
+										<?php
+												$rows = get_field('driftkostnad');
+
+												if($rows): ?>
+                    <div class="col-md-4">
                       <table class="table table-striped">
                       <?php
-                          $rows = get_field('driftkostnad');
-                          if($rows)
-                          {
                             echo '<h3>Driftkostnad</h3>';
-
                           	foreach($rows as $row)
                           	{
+															if($row['driftkostnad_typ_av_data']['0']) {
                           		echo '<tr><td><h5>' . $row['driftkostnad_typ_av_data']['0'] . ':</h5></td><td><h5>' . $row['driftkostnad_taxering_antaltyp'] .'</h5></td></tr>';
-                          	}
-                          }
+															}
+														}
 
                         ?>
                       </table>
 
                     </div>
-                  </div>
-                  <div class="col-md-3 col-md-offset-3">
+										<?php endif; ?>
+
+									<?php
+											$rows = get_field('taxeringsvarde');
+
+											if($rows): ?>
+                  <div class="col-md-4">
                     <table class="table table-striped">
                     <?php
-                        $rows = get_field('taxeringsvarde');
-                        if($rows)
-                        {
                           echo '<h3>Taxeringsvärde</h3>';
 
                           foreach($rows as $row)
                           {
-                            echo '<tr><td><h5>' . $row['taxering_typ_av_data']['0'] . ':</h5></td><td><h5>' . $row['taxering_antaltyp'] .'</h5></td></tr>';
-                          }
-                        }
-
+														if($row['taxering_typ_av_data']['0']) {
+                            	echo '<tr><td><h5>' . $row['taxering_typ_av_data']['0'] . ':</h5></td><td><h5>' . $row['taxering_antaltyp'] .'</h5></td></tr>';
+														}
+													}
                       ?>
                     </table>
 
                   </div>
-
+									<?php endif; ?>
 
 
                   </div>
@@ -260,7 +264,7 @@ get_header(); ?>
 			      <?php while( $blog->have_posts() ) : $blog->the_post(); ?>
 			        <?php $date_post = get_the_date(); ?>
 			      <a href="<? the_permalink(); ?>">
-			        <div class="col-md-3 col-sm-5 blog-card-var<?php if($i == 1) echo ' col-md-offset-1 col-sm-offset-1'; else if($i == 3) echo ' col-sm-offset-1 col-md-offset-0'; else if($i == 4) echo ' col-md-offset-1'; else if($i == 4) echo ' col-sm-offset-1'; else if($i == 5) echo ' col-md-offset-0 col-sm-offset-1';?>">
+			        <div class="col-md-3 col-sm-5 col-xs-12 blog-card-var<?php if($i == 1) echo ' col-md-offset-1 col-sm-offset-1'; else if($i == 3) echo ' col-sm-offset-1 col-md-offset-0'; else if($i == 4) echo ' col-md-offset-1'; else if($i == 4) echo ' col-sm-offset-1'; else if($i == 5) echo ' col-md-offset-0 col-sm-offset-1';?>">
 			          <div class="col-xs-12 blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
 			          <h4><?php echo the_title(); ?></h4>
 			          <div class="col-xs-12">

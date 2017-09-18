@@ -6543,36 +6543,129 @@ button.close {
     color: #1E5D9D;
     background-color: #FFF; }
 
+footer {
+  background-color: #FAFAFA;
+  padding-top: 5em;
+  padding-bottom: 5em;
+  margin-top: 2em;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center; }
+  footer .object-title {
+    font-weight: 300;
+    font-size: 110%; }
+  footer .brand-danfors img {
+    width: 75%;
+    margin-bottom: 2em; }
+  footer .brand-danfors p {
+    font-style: italic;
+    font-weight: 300;
+    font-size: 110%; }
+  footer .nyhetsbrev-danfors {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    font-weight: 300; }
+    footer .nyhetsbrev-danfors input {
+      padding: 0.5em;
+      margin-bottom: 2em;
+      margin-top: 1em;
+      background-color: #FAFAFA;
+      border-left-width: 0px;
+      border-right-width: 0px;
+      border-top-width: 0px;
+      border-radius: 0;
+      border-bottom-width: 1px;
+      border-color: #1E5D9D;
+      letter-spacing: 0.09em; }
+      footer .nyhetsbrev-danfors input:active {
+        outline: none !important; }
+      footer .nyhetsbrev-danfors input:focus {
+        outline: none !important; }
+      footer .nyhetsbrev-danfors input:visited {
+        outline: none; }
+    footer .nyhetsbrev-danfors button {
+      background-color: #FAFAFA;
+      border-color: #1E5D9D;
+      font-weight: 400;
+      color: #1E5D9D;
+      padding-top: 0.6em;
+      padding-bottom: 0.6em;
+      -webkit-transition: 0.3s;
+      transition: 0.3s; }
+      footer .nyhetsbrev-danfors button:hover {
+        background-color: #1E5D9D;
+        color: #FFF; }
+  footer ul {
+    margin: 0;
+    padding: 0; }
+    footer ul li {
+      list-style: none;
+      margin-top: 1em;
+      font-size: 90%;
+      font-weight: 400; }
+      footer ul li a {
+        cursor: pointer; }
+        footer ul li a:visited {
+          text-decoration: none;
+          color: #1E5D9D; }
+  footer .footer-links {
+    color: #1E5D9D; }
+  footer .footer-fluid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    padding: 0 2em; }
+    footer .footer-fluid div {
+      padding: 1em 3em;
+      width: 25%; }
+
+.hero-kunskap {
+  background: url("http://localhost:8888/wp-content/themes/danfors/assets/images/knowledge.jpg"); }
+
+.hero-blog {
+  background: url("http://localhost:8888/wp-content/themes/danfors/assets/images/blog.jpg"); }
+
 .hero-tillsalu {
-  background: url("http://localhost:8888/wp-content/themes/danfors/assets/images/tillsalu.jpg");
+  background: url("http://localhost:8888/wp-content/themes/danfors/assets/images/tillsalu.jpg"); }
+
+.hero {
   height: 60vh;
   padding: 20% 0 30% 0;
   color: #FFF;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center; }
-  .hero-tillsalu:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    -webkit-transition: all 0.8s;
-    transition: all 0.8s;
-    opacity: 0.4;
-    background-image: -webkit-linear-gradient(221deg, #1E5D9D 0%, #4487BA 100%);
-    background-image: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%);
-    background-size: 100% 100%;
-    overflow: hidden;
-    z-index: 0; }
-  .hero-tillsalu .hero-text {
+  .hero .hero-text {
     letter-spacing: 0.0125em;
     line-height: 1.3em;
     margin-bottom: 0.9em;
     color: #FFF;
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.18); }
-  .hero-tillsalu svg {
+  .hero svg {
     position: absolute;
     bottom: -6%;
     width: 100%;
@@ -6644,12 +6737,14 @@ button.close {
   z-index: 20;
   position: relative; }
   .listing-content .desc_agent {
-    margin-top: 3em; }
+    margin-top: 3em;
+    padding: 0 2em; }
   .listing-content .desc-agent-item {
-    background-color: #FAFAFA;
     padding-left: 0; }
     .listing-content .desc-agent-item:first-child {
       margin-left: 37.5px; }
+    .listing-content .desc-agent-item h4 {
+      margin-top: 0.3em; }
   .listing-content .desc {
     padding-top: 1em;
     padding-bottom: 1em; }
@@ -6777,17 +6872,41 @@ button.close {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-bottom: 4em;
+  margin-bottom: 2em;
   height: 100%; }
+  .bilder-field p {
+    margin-top: 1.2em;
+    font-size: 1.05em; }
   .bilder-field a {
     height: 100%; }
     .bilder-field a img {
       height: 100%;
       width: 100%; }
+
+.CTA-blog {
+  background-image: -webkit-linear-gradient(221deg, #1E5D9D 0%, #4487BA 100%);
+  background-image: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%);
+  padding: 10em 0;
+  color: #FFF;
+  margin-top: 2em; }
+  .CTA-blog .blog-card-var {
+    border-width: 0px;
+    box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.08); }
+  .CTA-blog a {
+    color: #FFF; }
 
 .contact-cta {
   background-image: -webkit-linear-gradient(221deg, #1E5D9D 0%, #4487BA 100%);
@@ -6807,11 +6926,13 @@ button.close {
 
 .maklare-bild {
   padding: 0;
-  max-height: 150px;
-  max-width: 255px;
-  overflow: hidden; }
-  .maklare-bild img {
-    min-height: 100%; }
+  margin-right: 0.5em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 6em;
+  width: 6em;
+  border-radius: 50%; }
 
 .list-price {
   color: #1E5D9D;
@@ -6823,6 +6944,33 @@ button.close {
 .icon-active-span {
   background-color: #1E5D9D !important;
   color: #1E5D9D; }
+
+.navigation .nav-links .nav-previous a {
+  border-width: 1px;
+  border-color: #4487BA;
+  border-style: solid;
+  border-radius: 7px;
+  color: #4487BA;
+  padding: 1em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-decoration: none; }
+  .navigation .nav-links .nav-previous a:hover {
+    color: #FFF;
+    background-color: #4487BA; }
+.navigation .nav-links .nav-next a {
+  border-width: 1px;
+  border-color: #4487BA;
+  border-style: solid;
+  border-radius: 7px;
+  color: #4487BA;
+  padding: 1em;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-decoration: none; }
+  .navigation .nav-links .nav-next a:hover {
+    color: #FFF;
+    background-color: #4487BA; }
 
 #masthead {
   z-index: 100;
@@ -7061,18 +7209,24 @@ button.close {
   border-width: 1px;
   border-style: solid;
   border-radius: 7px; }
+  .articles .article a {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    width: 100%; }
 .articles .article-img {
   padding: 0;
-  overflow: hidden; }
-  .articles .article-img img {
-    min-height: 14em;
-    min-width: 100%;
-    -o-object-fit: cover;
-       object-fit: cover; }
+  overflow: hidden;
+  min-height: 16em;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
 .articles .article-text {
   margin-top: 0.6em; }
 .articles .article-row {
-  margin-top: 0.8em;
+  margin-top: 23%;
+  position: relative;
+  bottom: 0;
   text-align: right; }
 .articles .article-btn {
   background-color: #FFF;
@@ -7104,8 +7258,8 @@ button.close {
   height: 16em; }
 
 .kunskap-search {
-  padding-bottom: 8em;
-  padding-top: 3em; }
+  padding-bottom: 2em;
+  padding-top: 2em; }
 
 .search-kunskap-box ul {
   -webkit-box-pack: start !important;
@@ -7445,6 +7599,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   display: -ms-flexbox;
   display: flex; }
 
+#omradet p, #beskrivning p {
+  font-size: 18px; }
+
 .kunskap-single-content {
   padding-top: 1.5em;
   padding-bottom: 1.5em;
@@ -7467,18 +7624,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
   line-height: 1.5em; }
 
 .blog-result {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
-  .blog-result a div {
-    min-width: 190px;
-    min-height: 106px;
-    margin-right: 1em;
-    margin-left: 1em; }
+  padding-left: 50px; }
 
 .search-blog-section {
   margin: 0; }
@@ -7522,6 +7668,25 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 @media (max-width: 1200px) {
   .articles .article {
     margin-left: 0 !important; } }
+@media (max-width: 991px) {
+  .articles .article-row {
+    margin-top: 15%; }
+
+  .cta-blog-random {
+    text-align: center;
+    margin-bottom: 3em; } }
+@media (max-width: 890px) {
+  .footer-fluid .brand-danfors {
+    -webkit-box-ordinal-group: 5;
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4;
+    margin-top: 3em; }
+    .footer-fluid .brand-danfors img {
+      width: 50%; }
+  .footer-fluid div {
+    width: 50% !important;
+    margin-top: 2em; } }
 @media (max-width: 1024px) {
   .listing .home-list-title {
     -webkit-animation: none;
@@ -7566,7 +7731,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
 @media (max-width: 768px) {
   .art-row {
     padding-left: 1.5em;
-    padding-right: 1.5em; } }
+    padding-right: 1.5em; }
+
+  .article {
+    padding-right: 0; } }
 @media (max-width: 767px) {
   .selected-listing {
     margin-top: 18em; } }
@@ -7590,7 +7758,10 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
             align-items: center; }
     .sf-meta-range label {
       margin: 0 !important;
-      width: 100% !important; } }
+      width: 100% !important; }
+
+  .footer-fluid div {
+    width: 100% !important; } }
 @media (max-width: 500px) {
   .hero-danfors {
     height: 72vh;

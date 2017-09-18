@@ -33,6 +33,50 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
+	"\/assets\/images\/blog.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.29815e+06,
+		"inputAbbreviatedPath": "\/assets\/images\/blog.jpg",
+		"outputAbbreviatedPath": "\/assets\/images\/blog.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/images\/cathryn-lavery-67852.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 1.07881e+06,
+		"inputAbbreviatedPath": "\/assets\/images\/cathryn-lavery-67852.jpg",
+		"outputAbbreviatedPath": "\/assets\/images\/cathryn-lavery-67852.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/images\/ethan-robertson-150601.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 3.39883e+06,
+		"inputAbbreviatedPath": "\/assets\/images\/ethan-robertson-150601.jpg",
+		"outputAbbreviatedPath": "\/assets\/images\/ethan-robertson-150601.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/images\/knowledge.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 474480,
+		"inputAbbreviatedPath": "\/assets\/images\/knowledge.jpg",
+		"outputAbbreviatedPath": "\/assets\/images\/knowledge.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
 	"\/assets\/images\/logo_bla.png": {
 		"fileType": 32768,
 		"ignore": 0,
@@ -125,7 +169,7 @@
 		"fileType": 16384,
 		"ignore": 0,
 		"ignoreWasSetByUser": 0,
-		"initialSize": 2.80346e+06,
+		"initialSize": 819865,
 		"inputAbbreviatedPath": "\/assets\/images\/tillsalu.jpg",
 		"outputAbbreviatedPath": "\/assets\/images\/tillsalu.jpg",
 		"outputPathIsOutsideProject": 0,
@@ -139,6 +183,17 @@
 		"initialSize": 1.91111e+06,
 		"inputAbbreviatedPath": "\/assets\/images\/tillsalu1.jpg",
 		"outputAbbreviatedPath": "\/assets\/images\/tillsalu1.jpg",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"processed": 0
+		},
+	"\/assets\/images\/tillsalu2.jpg": {
+		"fileType": 16384,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"initialSize": 2.80346e+06,
+		"inputAbbreviatedPath": "\/assets\/images\/tillsalu2.jpg",
+		"outputAbbreviatedPath": "\/assets\/images\/tillsalu2.jpg",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"processed": 0

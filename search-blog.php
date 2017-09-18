@@ -12,7 +12,7 @@ get_header(); ?>
 	<section id="primary" class="content-area">
 
 		<main id="main" class="site-main">
-			<section class="hero-danfors col-sm-12 blog-head">
+			<section class="hero hero-blog col-sm-12 blog-head">
         <div class="container text-center hero-items">
           <h1 class="hero-text">Vad händer på västkusten?</h1>
 					<p class="lead">Nedan kan ni följa vår resa under våra projekt för att göra västkusten till ett ännu bättre område att bo på</p>

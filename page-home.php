@@ -108,7 +108,7 @@ get_header(); ?>
 
       <div class="col-sm-6 team-text">
         <h2>Möt människorna som jobbar för dig</h2>
-        <p>Have you been prospecting for months on end, only to end up with no one? Or have you been trying to sell a product or service that has not been selling? Or you just kind of depressed about your current employment? There are many reasons to get down and start to get depressed about your situation. When you are down, do you know how to get back up and heading in the right direction?</p>
+        <p>Vi är många medarbetare på Danfors. Det betyder att vi kan erbjuda en bred kompetens med varierande erfarenheter. Det betyder också att vi har möjlighet att ägna mer tid åt att hjälpa våra kunder. Vi har tre kontor och känner till det mesta från Båstad i söder till Halmstad i norr.</p>
         <button class="btn btn-primary">Läs mer</button>
       </div>
       <div class="col-sm-4 col-sm-offset-1">
@@ -141,12 +141,13 @@ get_header(); ?>
             <?php while( $member->have_posts() ) : $member->the_post(); ?>
               <div class="col-sm-12 col-lg-5 article">
                 <a href="<? the_permalink(); ?>">
-                  <div class="col-sm-5 article-img">
-                  <?php the_post_thumbnail(); ?>
+                  <div class="col-sm-5 article-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)">
+                
                 </div></a>
                 <div class="col-sm-7 article-text">
                   <p class="kunskap-title"><?php echo the_title(); ?></p>
-                  <p class="kunskap-exc"><?php echo the_excerpt() ?></p>
+                  <!-- <p class="kunskap-exc"></p> -->
+                  <?php echo the_excerpt() ?>
                   <a href="<? the_permalink(); ?>"><button class="btn btn-primary article-btn">Läs mer</button></a>
                   <div class="row article-row">
                     <div class="col-sm-12 tags">
@@ -299,7 +300,7 @@ get_header(); ?>
 
 
   </div>
-  <button class="btn btn-lg btn-primary btn-show">Visa fler</button>
+  <a href="<?php echo get_site_url(); ?>/blog"><button class="btn btn-lg btn-primary btn-show">Visa fler</button></a>
 </section>
 <?php
 get_footer();

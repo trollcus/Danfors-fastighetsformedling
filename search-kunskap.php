@@ -11,16 +11,18 @@ get_header(); ?>
 <section id="primary" class="content-area">
 
   <main id="main" class="site-main">
-    <section class="hero-danfors col-sm-12 blog-head">
+    <section class="hero hero-kunskap col-sm-12 blog-head">
       <div class="container text-center hero-items">
         <h1 class="hero-text">Kunskapsbank</h1>
         <p class="lead">Här kan ni titta igenom våran stora kunskapsbank. Här kan ni läsa om hela processen kring att köpa ett hus eller varför man ska anlita en mäklare</p>
       </div>
     </section>
-    <section class="search col-sm-10 col-xs-12 col-sm-offset-1 search-page-listing-box kunskap-search">
+    <div class="container-fluid">
+    <section class="search col-sm-10 col-sm-offset-1 col-xs-12 search-page-listing-box kunskap-search">
       <div class="col-xs-12 search-func search-kunskap-box">
           <?php echo do_shortcode( '[searchandfilter id="303"]' ); ?>
       </div>
+    </section>
     <?php
 		if ( have_posts() ) : ?>
 
@@ -28,7 +30,7 @@ get_header(); ?>
       <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
-          <div class="row art-row">
+          <div class="row art-row" id="kunskapID">
 
 
     <?php
@@ -51,6 +53,7 @@ get_header(); ?>
     </div>
   </main><!-- #main -->
 </section><!-- #primary -->
+</div>
 
 <?php
 get_footer();

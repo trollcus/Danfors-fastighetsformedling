@@ -65,8 +65,97 @@ $radius: 7px
     border-color: none
     color: $blue
     background-color: $white
+
+footer
+  background-color: $lightgrey
+  padding-top: 5em
+  padding-bottom: 5em
+  margin-top: 2em
+  display: flex
+  justify-content: center
+  .object-title
+    font-weight: 300
+    font-size: 110%
+  .brand-danfors
+    img
+      width: 75%
+      margin-bottom: 2em
+    p
+      font-style: italic
+      font-weight: 300
+      font-size: 110%
+  .nyhetsbrev-danfors
+    flex-direction: column
+    display: flex
+    font-weight: 300
+    input
+      padding: 0.5em
+      margin-bottom: 2em
+      margin-top: 1em
+      background-color: $lightgrey
+
+      border-left-width: 0px
+      border-right-width: 0px
+      border-top-width: 0px
+      border-radius: 0
+      border-bottom-width: 1px
+      border-color: $blue
+      letter-spacing: 0.09em
+      &:active
+        outline: none !important
+      &:focus
+        outline: none !important
+      &:visited
+        outline: none
+
+    button
+      background-color: $lightgrey
+      border-color: $blue
+      font-weight: 400
+      color: $blue
+      padding-top: 0.6em
+      padding-bottom: 0.6em
+      transition: 0.3s
+      &:hover
+        background-color: $blue
+        color: $white
+
+
+  ul
+    margin: 0
+    padding: 0
+    li
+      list-style: none
+      margin-top: 1em
+      font-size: 90%
+      font-weight: 400
+      a
+        cursor: pointer
+        &:visited
+          text-decoration: none
+          color: $blue
+
+  .footer-links
+    color: $blue
+
+  .footer-fluid
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    flex-wrap: wrap
+    padding: 0 2em
+
+    div
+      padding: 1em 3em
+      width: 25%
+
+.hero-kunskap
+  background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/knowledge.jpg')
+.hero-blog
+  background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/blog.jpg')
 .hero-tillsalu
   background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/tillsalu.jpg')
+.hero
   height: 60vh
   padding: 20% 0 30% 0
   color: #FFF
@@ -74,19 +163,19 @@ $radius: 7px
     size: cover
     repeat: no-repeat
     position: center center
-  &:before
-    content: ""
-    position: absolute
-    top: 0
-    left: 0
-    height: 100%
-    width: 100%
-    transition: all 0.8s
-    opacity: 0.4
-    background-image: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%)
-    background-size: 100% 100%
-    overflow: hidden
-    z-index: 0
+  // &:before
+  //   content: ""
+  //   position: absolute
+  //   top: 0
+  //   left: 0
+  //   height: 100%
+  //   width: 100%
+  //   transition: all 0.8s
+  //   opacity: 0.4
+  //   background-image: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%)
+  //   background-size: 100% 100%
+  //   overflow: hidden
+  //   z-index: 0
   .hero-text
     letter-spacing: 0.0125em
     line-height: 1.3em
@@ -166,12 +255,14 @@ $radius: 7px
   position: relative
   .desc_agent
     margin-top: 3em
+    padding: 0 2em
   .desc-agent-item
-    background-color: $lightgrey
+
     padding-left: 0
     &:first-child
       margin-left: 37.5px
-
+    h4
+      margin-top: 0.3em
   .desc
     padding-top: 1em
     padding-bottom: 1em
@@ -304,14 +395,30 @@ $radius: 7px
 
 .bilder-field
   display: flex
+  flex-direction: column
+  align-items: center
   justify-content: center
-  margin-bottom: 4em
+  margin-bottom: 2em
   height: 100%
+  p
+    margin-top: 1.2em
+    font-size: 1.05em
   a
     height: 100%
     img
       height: 100%
       width: 100%
+
+.CTA-blog
+  background-image: $bluegradient
+  padding: 10em 0
+  color: $white
+  margin-top: 2em
+  .blog-card-var
+    border-width: 0px
+    box-shadow: $boxshadow
+  a
+    color: $white
 
 .contact-cta
   background-image: $bluegradient
@@ -330,11 +437,14 @@ $radius: 7px
 
 .maklare-bild
   padding: 0
-  max-height: 150px
-  max-width: 255px
-  overflow: hidden
-  img
-    min-height: 100%
+  margin-right: 0.5em
+  background:
+    size: cover
+    repeat: no-repeat
+    position: center center
+  height: 6em
+  width: 6em
+  border-radius: 50%
 .list-price
   color: $blue
   font-weight: 300
@@ -383,6 +493,39 @@ $radius: 7px
   background-color: $blue !important
   color: $blue
 
+// Föregående och nästa länkar
+
+.navigation
+  // background-image: $bluegradient
+  // background-size: cover
+  // background-repeat: no-repeat
+  .nav-links
+    .nav-previous
+      a
+        border-width: 1px
+        border-color: $lightblue
+        border-style: solid
+        border-radius: $radius
+        color: $lightblue
+        padding: 1em
+        transition: 0.5s
+        text-decoration: none
+        &:hover
+          color: $white
+          background-color: $lightblue
+    .nav-next
+      a
+        border-width: 1px
+        border-color: $lightblue
+        border-style: solid
+        border-radius: $radius
+        color: $lightblue
+        padding: 1em
+        transition: 0.5s
+        text-decoration: none
+        &:hover
+          color: $white
+          background-color: $lightblue
 #masthead
   z-index: 100
   padding-top: 1.5em
@@ -589,6 +732,11 @@ $radius: 7px
       width: 1px
       style: solid
       radius: 7px
+    a
+      height: 100%
+      position: relative
+      overflow: hidden
+      width: 100%
     // border:
     //   color: $lightgrey
     //   radius: 7px
@@ -597,14 +745,23 @@ $radius: 7px
   .article-img
     padding: 0
     overflow: hidden
-    img
-      min-height: 14em
-      min-width: 100%
-      object-fit: cover
+    min-height: 16em
+
+    background:
+      size: cover
+      repeat: no-repeat
+      position: center center
+    // img
+    //   min-height: 14em
+    //   min-width: 100%
+    //   object-fit: cover
   .article-text
     margin-top: 0.6em
+
   .article-row
-    margin-top: 0.8em
+    margin-top: 23%
+    position: relative
+    bottom: 0
     text-align: right
   .article-btn
     background-color: $white
@@ -643,8 +800,8 @@ $radius: 7px
   background-size: cover
   height: 16em
 .kunskap-search
-  padding-bottom: 8em
-  padding-top: 3em
+  padding-bottom: 2em
+  padding-top: 2em
 
 .search-kunskap-box
   ul
@@ -930,7 +1087,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 .listing-search
   display: flex
 
-
+#omradet, #beskrivning
+  p
+    font-size: 18px
 
 // Single kunskap
 .kunskap-single-content
@@ -956,14 +1115,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 
 // Sök inläg
 .blog-result
-  display: flex
-  flex-wrap: wrap
-  a
-    div
-      min-width: 190px
-      min-height: 106px
-      margin-right: 1em
-      margin-left: 1em
+  padding-left: 50px
+// .blog-result
+  // display: flex
+  // flex-wrap: wrap
+
+  // a
+  //   div
+      // min-width: 190px
+      // min-height: 106px
+      // margin-right: 1em
+      // margin-left: 1em
 .search-blog-section
   margin: 0
 .search-blog
@@ -999,7 +1161,23 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
   .articles
     .article
       margin-left: 0 !important
-
+@media (max-width: 991px)
+  .articles
+    .article-row
+      margin-top: 15%
+  .cta-blog-random
+    text-align: center
+    margin-bottom: 3em
+@media (max-width: 890px)
+  .footer-fluid
+    .brand-danfors
+      order: 4
+      margin-top: 3em
+      img
+        width: 50%
+    div
+      width: 50% !important
+      margin-top: 2em
 
 
 @media (max-width: 1024px)
@@ -1049,6 +1227,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
   .art-row
     padding-left: 1.5em
     padding-right: 1.5em
+  .article
+    padding-right: 0
 
 
 @media (max-width: 767px)
@@ -1065,6 +1245,9 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
     align-items: center
     label
       margin: 0 !important
+      width: 100% !important
+  .footer-fluid
+    div
       width: 100% !important
 
 @media (max-width: 500px)

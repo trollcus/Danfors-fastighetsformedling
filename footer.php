@@ -14,17 +14,41 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'danfors' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'danfors' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'danfors' ), 'danfors', '<a href="https://automattic.com/">Marcus Pamp</a>' );
-			?>
-		</div><!-- .site-info -->
+		<div class="footer-fluid">
+			<div class="brand-danfors">
+				<img src="http://localhost:8888/wp-content/themes/danfors/assets/images/logo_bla.png" alt="#" />
+				<p>Din lokala fastighetsmäklare</p>
+			</div>
+			<div class="sidor-danfors">
+				<ul>
+					<p class="object-title">Sidor</p>
+					<li><a href="<?php echo get_site_url(); ?>/" class="footer-links">Hem</a></li>
+					<li><a href="<?php echo get_site_url(); ?>/till-salu/" class="footer-links">Till Salu</a></li>
+	        <li><a href="<?php echo get_site_url(); ?>/kunskapsbanken/" class="footer-links">Kunskapsbanken</a></li>
+	        <li><a href="#" class="footer-links">Kontakt</a></li>
+	        <li><a href="#" class="footer-links">Om Danfors</a></li>
+					<li><a href="<?php echo get_site_url(); ?>/blog/" class="footer-links">Blog</a></li>
+				</ul>
+			</div>
+			<div class="annonser-danfors">
+				<?php $loop = new WP_Query( array( 'post_type' => 'bostad', 'orderby' => 'post_id', 'order' => 'ASC', 'posts_per_page' => '6')); ?>
+				<p class="object-title">Senaste objekten</p>
+				<ul>
+				<?php while( $loop->have_posts() ) : $loop->the_post(); ?>
+
+							<li><a href="<? the_permalink(); ?>"><?php the_title(); ?></a></li>
+
+        <?php endwhile; wp_reset_query(); ?>
+
+				</ul>
+			</div>
+			<div class="nyhetsbrev-danfors">
+				<p class="object-title">Nyhetsbrev</p>
+				<p>Skriv upp dig på vårt nyhetsbrev</p>
+				<input type="text" placeholder="Dinmail@mail.com">
+				<button>Bekräfta</button>
+			</div>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

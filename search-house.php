@@ -12,7 +12,7 @@ get_header(); ?>
 	<section id="primary" class="content-area">
 
 		<main id="main" class="site-main">
-			<section class="col-sm-12 hero-tillsalu">
+			<section class="col-sm-12 hero hero-tillsalu">
 	      <div class="container text-center hero-items">
 	        <h1 class="hero-text"><?php printf( esc_html__( 'Hus till salu', 'danfors' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 	      </div>
@@ -54,11 +54,13 @@ get_header(); ?>
 
 		endif; ?>
 	</div>
-<div class="container">
+<section class="CTA-blog">
+<div class="container-fluid">
 		<!-- Randon blog posts -->
-		<div class="col-md-3 col-sm-5">
+		<div class="col-md-3 col-sm-12 col-md-offset-1 cta-blog-random">
 			<h1>Vad händer på västkusten?</h1>
 			<p class="lead">Här kan ni läsa om vad som händer på västkusten</p>
+			<a href="<?php echo get_site_url(); ?>/blog/"><p>Se fler inlägg</p></a>
 		</div>
 		<?php $blog = new WP_Query( array( 'post_type' => 'post', 'orderby' => 'rand', 'posts_per_page' => '2'));
 		$i = 1;
@@ -66,7 +68,7 @@ get_header(); ?>
 		<?php while( $blog->have_posts() ) : $blog->the_post(); ?>
 			<?php $date_post = get_the_date(); ?>
 		<a href="<? the_permalink(); ?>">
-			<div class="col-md-3 col-sm-5 blog-card-var<?php if($i == 1) echo ' col-md-offset-1 col-sm-offset-1'; else if($i == 3) echo ' col-sm-offset-1 col-md-offset-0'; else if($i == 4) echo ' col-md-offset-1'; else if($i == 4) echo ' col-sm-offset-1'; else if($i == 5) echo ' col-md-offset-0 col-sm-offset-1';?>">
+			<div class="col-md-3 col-sm-5 col-xs-12 col-xs-push-3 col-sm-push-0 blog-card-var<?php if($i == 1) echo ' col-sm-offset-2 col-md-offset-1'?>">
 				<div class="col-xs-12 blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
 				<h4><?php echo the_title(); ?></h4>
 				<div class="col-xs-12">
@@ -103,6 +105,7 @@ get_header(); ?>
 		<?php $i++;?>
 		<?php endwhile; wp_reset_query(); ?>
 		</div>
+		</section>
 		</main><!-- #main -->
     </div>
 	</section><!-- #primary -->
