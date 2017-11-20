@@ -13,7 +13,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 
 		<main id="main" class="site-main">
-      <section class="list-hero" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)">
+      <section class="list-hero fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>" >
 
       </section>
       <section class="listing-content">
@@ -106,7 +106,7 @@ get_header(); ?>
                           <div class="bilder-field">
 
                               <a href="<?php echo $image['url']; ?>" data-rel=”lightbox”>
-                                   <img class="list-img" src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                   <img class="list-img fadeIMG" data-src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
                               </a>
                               <p><?php echo $image['caption']; ?></p>
                           </div>
@@ -146,14 +146,24 @@ get_header(); ?>
                       <?php the_field('omradet'); ?>
                     </div>
                   </div>
+									<?php
+
+										$location = get_field('adress_karta');
+
+										if( !empty($location) ):
+										?>
+										<div class="acf-map">
+											<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>"></div>
+										</div>
+										<?php endif; ?>
                 </div>
 								<?php
 										$rows = get_field('byggnadsinfo');
 										if($rows): ?>
                 <div class="col-sm-12 tab-pane fade" id="fakta">
-                  <div class="container">
+                  <div class="container-fluid">
 
-                    <div class="col-md-4 col-md-offset-2">
+                    <div class="col-md-6 col-xs-12">
                       <table class="table table-striped">
                       <?php
 
@@ -177,7 +187,7 @@ get_header(); ?>
 												$rows = get_field('driftkostnad');
 
 												if($rows): ?>
-                    <div class="col-md-4">
+                    <div class="col-md-6 col-xs-12">
                       <table class="table table-striped">
                       <?php
                             echo '<h3>Driftkostnad</h3>';
@@ -198,7 +208,7 @@ get_header(); ?>
 											$rows = get_field('taxeringsvarde');
 
 											if($rows): ?>
-                  <div class="col-md-4">
+                  <div class="col-md-6 col-xs-12">
                     <table class="table table-striped">
                     <?php
                           echo '<h3>Taxeringsvärde</h3>';
@@ -244,15 +254,36 @@ get_header(); ?>
 
       </section>
 
-      <section class="contact-cta">
-        <div class="container text-center">
-          <h1 class="text-center">Vi jobbar för att ditt husköp ska vara så smidigt som möjligt</h1><br><hr><br>
-          <a href="#"><button class="btn btn-lg btn-danfors-white text-center">Kontakta oss</button></a>
-        </div>
-      </section>
+			<section class="pagination-houses">
+				<?php
+					$next_post = get_next_post();
+					if (!empty( $next_post )): ?>
+				<div class="pagination-objects">
+					 <a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"><span class="glyphicon glyphicon-menu-left">&nbsp;</span><?php echo esc_attr( $next_post->post_title ); ?><?php echo esc_attr( $next_post->the_post_thumbnail ); ?></a>
+				</div>
+				<?php endif; ?>
+				<?php
+					$next_post = get_previous_post();
+					if (!empty( $next_post )): ?>
+				<div class="pagination-objects">
+					 <a href="<?php echo esc_url( get_permalink( $next_post->ID ) ); ?>"><?php echo esc_attr( $next_post->post_title ); ?>&nbsp;<span class="glyphicon glyphicon-menu-right"></span></a>
+				</div>
+				<?php endif; ?>
+			</section>
+
+			<?php
+			  $random = rand(0 ,1);
+			  if($random == 0){
+			    get_template_part( 'template-parts/CTA', 'section' );
+			  } else {
+			    get_template_part( 'template-parts/CTA', 'forsaljning' );
+			  }
+			?>
+
+
 
 			<section class="danfors-blog text-center">
-			  <div class="container-fluid">
+			  <div class="kunskap-fluid">
 			    <h1>Vad händer på västkusten?</h1>
 			    <div class="cards">
 
@@ -264,8 +295,8 @@ get_header(); ?>
 			      <?php while( $blog->have_posts() ) : $blog->the_post(); ?>
 			        <?php $date_post = get_the_date(); ?>
 			      <a href="<? the_permalink(); ?>">
-			        <div class="col-md-3 col-sm-5 col-xs-12 blog-card-var<?php if($i == 1) echo ' col-md-offset-1 col-sm-offset-1'; else if($i == 3) echo ' col-sm-offset-1 col-md-offset-0'; else if($i == 4) echo ' col-md-offset-1'; else if($i == 4) echo ' col-sm-offset-1'; else if($i == 5) echo ' col-md-offset-0 col-sm-offset-1';?>">
-			          <div class="col-xs-12 blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
+			        <div class="blog-card-var">
+			          <div class="blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
 			          <h4><?php echo the_title(); ?></h4>
 			          <div class="col-xs-12">
 			            <div class="author-blog">
@@ -300,34 +331,14 @@ get_header(); ?>
 			      </a>
 			      <?php $i++;?>
 			      <?php endwhile; wp_reset_query(); ?>
-			      <!-- <div class="col-md-3 col-sm-5 blog-card col-md-offset-1 col-sm-offset-1">
-			        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-			        <hr>
-			        <h4>Datum</h4>
-			      </div>
-			      <div class="col-md-3 col-sm-5 blog-card">
-			        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-			        <hr>
-			        <h4>Datum</h4>
-			      </div>
-			      <div class="col-md-3 col-sm-5 blog-card col-sm-offset-1 col-md-offset-0">
-			        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-			        <hr>
-			        <h4>Datum</h4>
-			      </div>
-			      <div class="col-md-3 col-sm-5 blog-card col-md-offset-1">
-			        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-			        <hr>
-			        <h4>Datum</h4>
-			      </div> -->
-
-
 
 			    </div>
 
 
 			  </div>
+			  <a href="<?php echo get_site_url(); ?>/blog"><button class="btn btn-lg btn-primary btn-show">Visa fler</button></a>
 			</section>
+
 
 
 

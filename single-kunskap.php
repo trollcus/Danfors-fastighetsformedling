@@ -12,7 +12,7 @@ get_header(); ?>
 <div id="primary" class="content-area">
   <main id="main" class="site-main">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <section class="list-hero" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)">
+      <section class="list-hero fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
       </section>
       <section class="kunskap-single-content">
         <div class="container">
@@ -24,6 +24,10 @@ get_header(); ?>
           <!-- <h1 class="text-center"><?php the_title() ?></h1> -->
           <div class="content-kunskap">
             <?php the_content(); ?>
+
+
+
+
           </div>
 
         </div>
@@ -31,7 +35,14 @@ get_header(); ?>
 
       </section>
       <?php endwhile; endif; ?>
-      <?php get_template_part( 'template-parts/CTA', 'section' ); ?>
+      <?php
+        $random = rand(0 ,1);
+        if($random == 0){
+          get_template_part( 'template-parts/CTA', 'section' );
+        } else {
+          get_template_part( 'template-parts/CTA', 'forsaljning' );
+        }
+      ?>
 
 
 

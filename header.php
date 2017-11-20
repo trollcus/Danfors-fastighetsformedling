@@ -44,10 +44,11 @@
 
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<?php echo get_site_url(); ?>/till-salu/" class="link-top">Till Salu</a></li>
+				<li><a href="<?php echo get_site_url(); ?>/aktuellt/" class="link-top">Aktuellt</a></li>
         <li><a href="<?php echo get_site_url(); ?>/kunskapsbanken/" class="link-top">Kunskapsbanken</a></li>
-        <li><a href="#" class="link-top">Kontakt</a></li>
-        <li><a href="#" class="link-top">Om Danfors</a></li>
-				<li><a href="<?php echo get_site_url(); ?>/blog/" class="link-top">Blog</a></li>
+        <li><a href="<?php echo get_site_url(); ?>/om-danfors/" class="link-top">Om Danfors</a></li>
+				<li><a href="<?php echo get_site_url(); ?>/kontakt/" class="link-top">Kontakt</a></li>
+
         <!-- <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">

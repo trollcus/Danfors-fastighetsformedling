@@ -12,7 +12,7 @@ get_header(); ?>
 	<section id="primary" class="content-area">
 
 		<main id="main" class="site-main">
-			<section class="col-sm-12 hero hero-tillsalu">
+			<section class="col-sm-12 hero hero-tillsalu fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
 	      <div class="container text-center hero-items">
 	        <h1 class="hero-text"><?php printf( esc_html__( 'Hus till salu', 'danfors' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 	      </div>
@@ -55,20 +55,20 @@ get_header(); ?>
 		endif; ?>
 	</div>
 <section class="CTA-blog">
-<div class="container-fluid">
+<div class="cta-blog-fluid">
 		<!-- Randon blog posts -->
-		<div class="col-md-3 col-sm-12 col-md-offset-1 cta-blog-random">
+		<div class="cta-blog-random">
 			<h1>Vad händer på västkusten?</h1>
 			<p class="lead">Här kan ni läsa om vad som händer på västkusten</p>
-			<a href="<?php echo get_site_url(); ?>/blog/"><p>Se fler inlägg</p></a>
+			<a href="<?php echo get_site_url(); ?>/aktuellt/"><p>Se fler inlägg</p></a>
 		</div>
-		<?php $blog = new WP_Query( array( 'post_type' => 'post', 'orderby' => 'rand', 'posts_per_page' => '2'));
+		<?php $blog = new WP_Query( array( 'post_type' => 'post', 'orderby' => 'rand', 'posts_per_page' => '1'));
 		$i = 1;
 		?>
 		<?php while( $blog->have_posts() ) : $blog->the_post(); ?>
 			<?php $date_post = get_the_date(); ?>
 		<a href="<? the_permalink(); ?>">
-			<div class="col-md-3 col-sm-5 col-xs-12 col-xs-push-3 col-sm-push-0 blog-card-var<?php if($i == 1) echo ' col-sm-offset-2 col-md-offset-1'?>">
+			<div class="blog-card-var">
 				<div class="col-xs-12 blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
 				<h4><?php echo the_title(); ?></h4>
 				<div class="col-xs-12">

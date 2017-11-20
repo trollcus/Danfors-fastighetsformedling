@@ -62,7 +62,7 @@ get_header(); ?>
                     echo $desc;
                    ?></p>
                 </div>
-                  <div class="list-image list-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)">
+                  <div class="list-image list-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
                     <!-- <?php the_post_thumbnail(); ?> -->
                   </div>
 
@@ -128,73 +128,35 @@ get_header(); ?>
 </section>
 
 <section class="kunskap-section">
-  <div class="container">
+  <div class="container-fluid kunskap-fluid">
     <h1 class="col-sm-12 text-center kunskapsbank-title">Kunskapsbanken</h1>
     <p class="lead text-center">Vår stora kunskapsbank hjälper dig igenom processen av att köpa ett hus. Läs igenom våra artiklar ifall det är något du är osäker på eller bara är nyfiken att läsa på om</p>
 
     <div class="articles">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="row art-row">
             <!-- Inlägg små -->
             <?php $member = new WP_Query( array( 'post_type' => 'kunskap', 'orderby' => 'post_id', 'order' => 'ASC', 'posts_per_page' => '4')); ?>
             <?php while( $member->have_posts() ) : $member->the_post(); ?>
-              <div class="col-sm-12 col-lg-5 article">
+              <div class="article">
                 <a href="<? the_permalink(); ?>">
-                  <div class="col-sm-5 article-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)">
-                
+                  <div class="article-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
+
                 </div></a>
-                <div class="col-sm-7 article-text">
+                <div class="article-text">
                   <p class="kunskap-title"><?php echo the_title(); ?></p>
                   <!-- <p class="kunskap-exc"></p> -->
                   <?php echo the_excerpt() ?>
                   <a href="<? the_permalink(); ?>"><button class="btn btn-primary article-btn">Läs mer</button></a>
-                  <div class="row article-row">
-                    <div class="col-sm-12 tags">
+                  <div class="article-row">
+                    <div class="tags">
                       <p><?php the_tags('', '', ''); ?></p>
                     </div>
                   </div>
                 </div>
               </div>
             <?php endwhile; wp_reset_query(); ?>
-            <!-- <div class="col-sm-12">
-              <div class="col-sm-6">
 
-              </div>
-              <div class="col-sm-6">
-                <h1 class="small">TITEL</h1>
-                <p>EXCERPT</p>
-                <button class="btn btn-primary">Läs mer</button>
-                <div class="row">
-                  <div class="col-sm-4 col-sm-offset-8">
-                    <p>Kategori</p>
-                  </div>
-                </div>
-              </div>
 
-            </div>
-            <div class="col-sm-12">
-              <div class="col-sm-6">
 
-              </div>
-              <div class="col-sm-6">
-                <h4>Titel</h4>
-                <p>EXCERPT</p>
-                <button class="btn btn-primary">Läs mer</button>
-                <div class="row">
-                  <div class="col-sm-4 col-sm-offset-8">
-                    <p>Kategori</p>
-                  </div>
-                </div>
-              </div>
-
-            </div> -->
-          </div>
-        </div>
-        <div class="col-sm-6">
-
-        </div>
-      </div>
     </div>
     <div class="text-center col-xs-12 articles-btn">
       <a href="<?php echo get_site_url(); ?>/kunskapsbanken"><button class="btn btn-lg btn-primary">Visa fler</button></a>
@@ -203,32 +165,22 @@ get_header(); ?>
 
   </div>
 </section>
-<section class="contact-cta">
-  <div class="container text-center">
-    <h1 class="text-center">Vi jobbar för att ditt husköp ska vara så smidigt som möjligt</h1><br><hr><br>
-    <a href="#"><button class="btn btn-lg btn-danfors-white text-center">Kontakta oss</button></a>
-  </div>
 
-</section>
+<?php
+  $random = rand(0 ,1);
+  if($random == 0){
+    get_template_part( 'template-parts/CTA', 'section' );
+  } else {
+    get_template_part( 'template-parts/CTA', 'forsaljning' );
+  }
+?>
 
 <section class="danfors-blog text-center">
-  <div class="container-fluid">
+  <div class="container-fluid kunskap-fluid">
     <h1>Vad händer på västkusten?</h1>
     <p class="lead">Vi är involverade i flera projekt för att utveckla och göra västkusten till en ännu bättre plats att leva på. Här kan ni följa vår framgång och vad vi just nu utvecklar.</p>
     <div class="cards">
-      <!-- <?php $blog = new WP_Query( array( 'post_type' => 'post', 'orderby' => 'post_date', 'order' => 'DESC', 'posts_per_page' => '6'));
-      $i = 1;
-      ?>
-      <?php while( $blog->have_posts() ) : $blog->the_post(); ?>
-      <a href="<? the_permalink(); ?>">
-        <div class="col-md-3 col-sm-5 blog-card-var blog-card<?php if($i == 1) echo ' col-md-offset-1 col-sm-offset-1'; else if($i == 3) echo ' col-sm-offset-1 col-md-offset-0'; else if($i == 4) echo ' col-md-offset-1'; else if($i == 4) echo ' col-sm-offset-1'; else if($i == 5) echo ' col-md-offset-0 col-sm-offset-1';?>">
-          <h4><?php echo the_title(); ?></h4>
-          <hr>
-          <h4><?php echo get_the_date(); ?></h4>
-        </div>
-      </a>
-      <?php $i++;?>
-      <?php endwhile; wp_reset_query(); ?> -->
+
 
 
       <?php $blog = new WP_Query( array( 'post_type' => 'post', 'orderby' => 'post_date', 'order' => 'DESC', 'posts_per_page' => '6'));
@@ -237,10 +189,10 @@ get_header(); ?>
       <?php while( $blog->have_posts() ) : $blog->the_post(); ?>
         <?php $date_post = get_the_date(); ?>
       <a href="<? the_permalink(); ?>">
-        <div class="col-md-3 col-sm-5 blog-card-var<?php if($i == 1) echo ' col-md-offset-1 col-sm-offset-1'; else if($i == 3) echo ' col-sm-offset-1 col-md-offset-0'; else if($i == 4) echo ' col-md-offset-1'; else if($i == 4) echo ' col-sm-offset-1'; else if($i == 5) echo ' col-md-offset-0 col-sm-offset-1';?>">
-          <div class="col-xs-12 blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
+        <div class="blog-card-var">
+          <div class="blog-card-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
           <h4><?php echo the_title(); ?></h4>
-          <div class="col-xs-12">
+          <div class="col-xs-12 author-section">
             <div class="author-blog">
               <?php
 
@@ -252,7 +204,7 @@ get_header(); ?>
                   setup_postdata( $post );
 
                   ?>
-              <div class="author-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
+              <div class="author-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
               <div class="author-blog-info">
                 <div class="author-name">
                   <?php the_title(); ?>
@@ -273,34 +225,15 @@ get_header(); ?>
       </a>
       <?php $i++;?>
       <?php endwhile; wp_reset_query(); ?>
-      <!-- <div class="col-md-3 col-sm-5 blog-card col-md-offset-1 col-sm-offset-1">
-        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-        <hr>
-        <h4>Datum</h4>
-      </div>
-      <div class="col-md-3 col-sm-5 blog-card">
-        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-        <hr>
-        <h4>Datum</h4>
-      </div>
-      <div class="col-md-3 col-sm-5 blog-card col-sm-offset-1 col-md-offset-0">
-        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-        <hr>
-        <h4>Datum</h4>
-      </div>
-      <div class="col-md-3 col-sm-5 blog-card col-md-offset-1">
-        <h4>TITEL TITEL TITEL TITEL TITEL TITEL TITEL</h4>
-        <hr>
-        <h4>Datum</h4>
-      </div> -->
-
-
 
     </div>
 
 
   </div>
-  <a href="<?php echo get_site_url(); ?>/blog"><button class="btn btn-lg btn-primary btn-show">Visa fler</button></a>
+  <a href="<?php echo get_site_url(); ?>/aktuellt"><button class="btn btn-lg btn-primary btn-show">Visa fler</button></a>
 </section>
+
+<a href="#" style="display:none;" id="forsaljning"><button class="cta-forsaljning">Kostnadsfri försäljningsvärdering</button></a>
+
 <?php
 get_footer();

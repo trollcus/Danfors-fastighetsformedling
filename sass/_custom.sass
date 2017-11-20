@@ -66,11 +66,25 @@ $radius: 7px
     color: $blue
     background-color: $white
 
+.cta-forsaljning
+  position: fixed
+  bottom: 20px
+  left: 50%
+  margin-left: -135px
+  background: $bluegradient
+  color: $white
+  border-radius: 2em
+  padding: 1.27em 1.47em
+  font-size: 1.10em
+  box-shadow: 0 0 30px 0 rgba(3,63,135,0.50)
+  border: none
+  width: 270px
+
+
 footer
   background-color: $lightgrey
   padding-top: 5em
   padding-bottom: 5em
-  margin-top: 2em
   display: flex
   justify-content: center
   .object-title
@@ -131,6 +145,7 @@ footer
       font-weight: 400
       a
         cursor: pointer
+        color: $blue
         &:visited
           text-decoration: none
           color: $blue
@@ -148,13 +163,24 @@ footer
     div
       padding: 1em 3em
       width: 25%
+  .socialFooter
+    width: 100% !important
+    padding: 0 !important
+    .link-icon
+      display: inline-block
+      margin-right: 0.7em
+      &:hover
+        svg
+          g
+            fill: #08498c
+            transition: 0.3s
 
-.hero-kunskap
-  background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/knowledge.jpg')
-.hero-blog
-  background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/blog.jpg')
-.hero-tillsalu
-  background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/tillsalu.jpg')
+// .hero-kunskap
+//   background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/knowledge.jpg')
+// .hero-blog
+//   background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/blog.jpg')
+// .hero-tillsalu
+//   background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/tillsalu.jpg')
 .hero
   height: 60vh
   padding: 20% 0 30% 0
@@ -187,6 +213,10 @@ footer
     bottom: -6%
     width: 100%
     height: 10vw
+.hero-sub
+  padding: 25% 0 20% 0 !important
+  height: 20vh !important
+  background-position: center 45%
 .hero-danfors
   height: 60vh
   padding: 20% 0 30% 0
@@ -211,7 +241,7 @@ footer
   padding-top: 1em
   padding-bottom: 1em
   label
-    font-size: 1.3em
+    font-size: 1.2em
     font-weight: 300
   button
     margin-top: 3.25em
@@ -228,6 +258,7 @@ footer
   height: 60vh
   overflow: hidden
   z-index: 1
+  background-color: $blue
   position: relative
   background-size: cover
   background-attachment: fixed
@@ -317,7 +348,6 @@ footer
   z-index: 2
 .list-image
   overflow: hidden
-  object-fit: fill
   max-height: 357.641px
   img
     transition: 0.8s
@@ -338,6 +368,7 @@ footer
   background-repeat: no-repeat
   height: 24em
   background-position: center center
+  width: 100%
 
 
 
@@ -347,6 +378,8 @@ footer
   background-color: white
   padding: 0.5em 0
   color: $blue
+  width: 100%
+  margin: 0
   font-size: 1.1em
   .list-omrade
     color: $grey
@@ -356,6 +389,164 @@ footer
 .search-listing-box
   margin: 15px
   padding: 0
+
+.office
+  display: flex
+  flex-direction: row
+  .office-laholm
+    .office-map
+      order: 1
+  .office-info
+    padding-top: 2em
+  .office-text-area
+    width: 50%
+    padding: 1em 3em
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+
+    .office-text
+      color: $grey
+      font-weight: 300
+      line-height: 1.8em
+      font-size: 140%
+      margin: 1em auto
+
+
+  .office-map
+    width: 50%
+    .acf-map
+      margin: 0
+      height: 100%
+  .office-workers
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-between
+    padding: 1.5em 3em
+    .office-worker
+      margin: 0.5em
+
+      flex: 1
+    img
+      border-radius: 50%
+
+// Danfors media
+.danfors-media
+  padding: 2em
+  background-color: $lightgrey
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  .media-list-container
+    p
+      color: $grey
+      font-weight: 300
+      line-height: 1.4em
+      font-size: 110%
+      margin: 1em auto
+  .media-list
+    ul
+      margin: 0
+      padding: 0
+      list-style: none
+      li
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        transition: box-shadow 0.3s
+        transition: transform 0.2s
+        background-color: $white
+        margin-bottom: 4px
+        overflow: hidden
+        &:first-child
+          border-radius: $radius $radius 0 0
+        &:last-child
+          border-radius: 0 0 $radius $radius
+        &:hover
+          cursor: pointer
+          box-shadow: $boxshadow
+          transform: scale(1.005)
+        div
+          padding: 1.2em 0.8em
+          color: $grey
+          font-weight: 300
+          line-height: 1.4em
+          font-size: 105%
+          &:last-child
+            color: $blue
+            font-weight: 400
+        .media-logo
+          background-position: center center
+          background-size: contain
+          background-repeat: no-repeat
+
+          width: 10em
+
+  .media-section
+    width: 100%
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+    flex-wrap: wrap
+    max-width: 1200px
+    .media-col
+      flex-grow: 1
+      flex-basis: 0
+      margin: 2em
+    .media-manual
+      background-color: $white
+      border-radius: $radius
+      transition: box-shadow 0.3s
+      &:hover
+        cursor: pointer
+        box-shadow: $boxshadow
+      .media-manual-text
+        padding: 1em 1em
+        p
+          color: $grey
+          font-weight: 300
+          line-height: 1.4em
+          font-size: 110%
+          margin: 1em auto
+      .manual-img
+        background-position: 40% 50%
+        background-size: cover
+        background-repeat: no-repeat
+        height: 10em
+
+.meet-hakan
+  display: flex
+  width: 100%
+  flex-direction: column
+  align-items: center
+  .contain
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+
+    justify-content: center
+    padding-top: 4em
+    max-width: 1400px
+
+    div
+      padding: 10em 0
+    .hakan
+      width: 50%
+      align-content: flex-end
+      background:
+        size: contain
+        position: center center
+        repeat: no-repeat
+    .hakan-text
+      width: 30%
+    p
+      color: $grey
+      font-weight: 300
+      line-height: 1.8em
+      font-size: 120%
+      margin: 1em auto
 
 .meet-danfors
   padding-top: 6em
@@ -374,6 +565,7 @@ footer
     margin-top: 1em
   .team-text
     padding-top: 3.5em
+    padding-bottom: 2em
 
 .listing-items
   margin-top: 5em
@@ -419,6 +611,112 @@ footer
     box-shadow: $boxshadow
   a
     color: $white
+
+.social-cta
+  background-image: none !important
+  background-color: $lightgrey
+  color: #191919 !important
+  padding: 6em 0 !important
+  h1
+    margin-top: 0
+  .media-container
+    width: 100%
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    svg
+      margin: 0.5em 2em
+      width: 50px
+      height: 50px
+      transition: 0.5s
+      cursor: pointer
+      &:hover
+        transform: scale(1.1)
+        transform: translateY(-3px)
+
+// Contact sektion
+
+
+.contact-form-part
+  width: 50%
+  .wpcf7-submit
+    background: $bluegradient
+    font-size: 14px
+    padding: 1em 3.5em
+    font-weight: 300
+    color: $white
+  label
+    font-weight: 300
+    width: 100%
+  input
+    border: none
+    background-color: $white
+    padding: 1em 0.9em
+    border-radius: 7px
+    margin-top: 0.3em
+
+    &:focus
+      outline-color: $blue
+  textarea
+    border: none
+    background-color: $white
+    border-radius: 7px
+    max-width: 351px
+    width: 100% !important
+    &:focus
+      outline-color: $blue
+  .contact-input
+    width: 100%
+.contact-section
+  padding: 2em 0
+  width: 100%
+  height: 100%
+  .small-blue
+    background-color: $lightblue
+    height: 0.2em
+    width: 2em
+  .office-text
+    color: $grey
+    font-weight: 300
+    line-height: 1.8em
+    font-size: 140%
+    margin: 1em auto
+    text-align: center
+  .contact-container
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: space-around
+    width: 100%
+    height: 100%
+    padding: 3em 2em 0 2em
+    .contact-form-part
+      padding: 4em 3em
+      background-color: $lightgrey
+      border-radius: $radius
+      box-shadow: 22px 22px 24px 0 rgba(0,0,0,0.05)
+    .contact-points
+      ul
+        margin: 2em 0 0 0
+        padding: 0
+        list-style: none
+        li
+          display: flex
+          flex-direction: row
+          align-items: center
+          margin-bottom: 3em
+          // Ta bort margins här sedan och ersätt med flex
+          p
+            font-size: 17px
+            font-weight: 300
+          div
+            margin-right: 2em
+
+
+
+
+//
 
 .contact-cta
   background-image: $bluegradient
@@ -526,6 +824,9 @@ footer
         &:hover
           color: $white
           background-color: $lightblue
+
+.site
+  overflow-x: hidden
 #masthead
   z-index: 100
   padding-top: 1.5em
@@ -719,14 +1020,104 @@ footer
 .slick-active
   opacity: 0.8 !important
 
+.kunskap-section
+  display: flex
+  justify-content: center
+  flex-direction: column
+.kunskap-fluid
+  display: flex
+  flex-direction: column
+  align-items: center
+
+.art-search
+  height: 100%
+  width: 100%
+  padding-left: 1em
+  padding-right: 1em
+
+.articles-search
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+  overflow: auto
+
+.article-big-link
+  width: 100%
+  margin-top: 4em
+  margin-bottom: 2em
+  border-radius: $radius
+  box-shadow: $boxshadow
+  text-align: center
+  &:hover
+    text-decoration: none
+    color: $white
+    cursor: pointer
+  &:first-child
+    margin-top: 2em
+
+.article-big
+  background:
+    size: cover
+    repeat: no-repeat
+    position: center center
+  width: 100%
+  padding: 9em 0em
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $white
+  box-shadow: $boxshadow
+
+.article-medium-row
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  flex-wrap: wrap
+  width: 100%
+
+.article-medium-link
+  width: 48%
+  margin-top: 2em
+  border-radius: $radius
+  box-shadow: $boxshadow
+  text-align: center
+  &:hover
+    text-decoration: none
+    color: $white
+    cursor: pointer
+  &:first-child
+    margin-top: 2em
+
+
+.article-medium
+  background:
+    size: cover
+    repeat: no-repeat
+    position: center center
+  width: 100%
+  padding: 12em 0em
+  display: flex
+  justify-content: center
+  align-items: center
+  color: $white
+  box-shadow: $boxshadow
+
 .articles
+  max-width: 1280px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  overflow: auto
+  padding-bottom: 2em
   .article
     color: $grey
     padding-left: 0
-    overflow: hidden
+    overflow: auto
     margin-top: 2.5em
-    margin-left: 60px
-    height: 100%
+    width: 46%
+    display: flex
+    min-width: 580px
+
     border:
       color: rgba(0, 0, 0, 0.05)
       width: 1px
@@ -734,19 +1125,13 @@ footer
       radius: 7px
     a
       height: 100%
-      position: relative
       overflow: hidden
-      width: 100%
-    // border:
-    //   color: $lightgrey
-    //   radius: 7px
-    //   size: 0.5px
-    //   style: solid
+      width: 80%
   .article-img
     padding: 0
     overflow: hidden
-    min-height: 16em
-
+    height: 16em
+    width: 100%
     background:
       size: cover
       repeat: no-repeat
@@ -757,12 +1142,16 @@ footer
     //   object-fit: cover
   .article-text
     margin-top: 0.6em
+    padding-left: 0.8em
+    padding-right: 0.8em
+    display: flex
+    width: 100%
+    align-items: space-between
+    flex-direction: column
 
   .article-row
-    margin-top: 23%
-    position: relative
-    bottom: 0
     text-align: right
+
   .article-btn
     background-color: $white
     border: none
@@ -802,6 +1191,19 @@ footer
 .kunskap-search
   padding-bottom: 2em
   padding-top: 2em
+  display: none
+
+.villaguiden-section
+  width: 100%
+  margin-top: 4em
+  margin-bottom: 2em
+  border-radius: $radius
+  box-shadow: $boxshadow
+  text-align: center
+  &:hover
+    text-decoration: none
+    color: $white
+    cursor: pointer
 
 .search-kunskap-box
   ul
@@ -852,9 +1254,14 @@ body
   overflow-x: hidden
 
 .danfors-blog
+  display: flex
+  justify-content: center
+  flex-direction: column
+  margin-bottom: 2em
   h1
     margin-top: 2.5em
     margin-bottom: 1em
+
   p
     margin-bottom: 2.5em
     line-height: 1.9em
@@ -863,18 +1270,29 @@ body
 
 .cards
   overflow: auto
-  padding: 2.5em
   height: 100%
+  display: flex
+  flex-wrap: wrap
+  width: 100%
+  justify-content: space-around
+  max-width: 1000px
 a
   text-decoration: none
+  overflow: auto
+  div
+    width: 285px
+    .blog-card-img
+      width: 100%
+
 .blog-card-var
   background-color: $white
-  max-width: 285px
+  // margin-left: 2em
   h4
     padding-right: 1em
     padding-left: 1em
     text-align: left
     color: $grey
+    height: 38px
   border:
     color: rgba(0, 0, 0, 0.05)
     width: 1px
@@ -888,6 +1306,8 @@ a
   padding-left: 0
   padding-right: 0
   overflow: hidden
+  height: 276px
+  max-height: 276px
 .blog-card-img
   padding: 0
   height: 9em
@@ -900,7 +1320,11 @@ a
 .author-blog
   display: flex
   flex-direction: row
-  margin-top: 3.5em
+  width: 100%
+  height: 100%
+  margin-top: 2em
+
+
   .author-blog-info
     flex-direction: column
     display: flex
@@ -912,7 +1336,7 @@ a
     .author-date
       opacity: 0.6
   .author-img
-    width: 3em
+    min-width: 3em
     height: 3em
     border-radius: 50%
     margin-right: 1em
@@ -954,6 +1378,7 @@ a
     min-width: 100% !important
 
 .search-func
+  padding: 0
   select
     padding: 1em 0.9em
     border: none
@@ -968,22 +1393,15 @@ a
     &:visited
       outline: none
   ul
-    padding-left: 10px
-    padding-right: 10px
+    padding-left: 0
+    padding-right: 0
     margin-left: 0
     display: flex
     flex-direction: row
     list-style: none
-    justify-content: space-between
-    li
-      &:nth-child(1)
-        width: 35%
-        label
-          width: 100%
-          input
-            width: 100%
-      &:nth-child(2)
-        width: 35%
+    flex-wrap: wrap
+    justify-content: space-around
+
     h4
       font-weight: 300
     .sf-input-text
@@ -1018,8 +1436,13 @@ a
         &:active
           outline: none
     .sf-field-post-meta-utgangspris
+      width: 35%
 
       div
+        display: flex
+        flex-wrap: wrap
+        align-items: center
+        flex-direction: row
         label
           margin-left: 0.4em
           width: 45%
@@ -1072,12 +1495,56 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
     #chevron-small-up
       fill: $blue
 
+.CTA-blog
+  display: flex
+  justify-content: center
+  .cta-blog-fluid
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    flex-direction: row
+    justify-content: space-around
+    max-width: 1000px
+    width: 100%
+
+
+
+.pagination-houses
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  flex-wrap: wrap
+  text-align: center
+  padding-top: 2em
+  padding-bottom: 2em
+
+  .pagination-objects
+    flex-grow: 1
+    flex-basis: 0
+    font-size: 120%
+    padding: 2.1em 5em 2.1em 5em
+    span
+      top: 0.135em
+
+    // &:last-child
+    //   border-right-width: 0px
+    //   border-top-width: 0px
+    //   border-left-width: 2px
+    //   border-bottom-width: 0px
+    //   border-style: solid
+    //   border-color: $lightgrey
+    a
+      color: $lightblue
+      &:visited
+        color: $lightblue
 // Sökresultat för bostadssidan
 .posts-navigation
   width: 100%
   padding: 2em 10%
 .search-page-listing-box
   margin-bottom: 4em
+  overflow: auto
 .search-results-listing
   padding-top: 2em
   overflow: auto
@@ -1115,7 +1582,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 
 // Sök inläg
 .blog-result
-  padding-left: 50px
+  display: flex
+  justify-content: center
 // .blog-result
   // display: flex
   // flex-wrap: wrap
@@ -1145,6 +1613,25 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 .blog-head
   margin-bottom: 3em
 
+// Google Maps
+
+.acf-map
+  width: 100%
+  height: 600px
+  margin-bottom: -4em
+  margin-top: 4em
+
+
+.acf-map
+  img
+    max-width: inherit !important
+
+#omradet
+  padding: 0
+
+
+
+
 @media (min-width: 1200px)
   .content-kunskap
     padding: 0 8em
@@ -1152,23 +1639,49 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
 
 @media (min-width: 1205px)
   .danfors-blog
+
     p
       margin-bottom: 2.5em
       padding-left: 2em
       padding-right: 2em
 
+@media (max-width: 1030px)
+  .meet-hakan
+    .contain
+      flex-direction: column
+      align-items: center
+      .hakan
+        order: 2
+        margin-left: 40%
+      .hakan-text
+        padding: 0
+        width: 90%
 @media (max-width: 1200px)
   .articles
-    .article
-      margin-left: 0 !important
+    justify-content: center
+
+
 @media (max-width: 991px)
-  .articles
-    .article-row
-      margin-top: 15%
+
   .cta-blog-random
     text-align: center
     margin-bottom: 3em
 @media (max-width: 890px)
+  .office
+    flex-direction: column
+    align-items: center
+    .office-text-area
+      width: 100%
+    .office-map
+      height: 25em
+      width: 100%
+  .office-laholm
+    .office-text-area
+      order: 2
+    .office-map
+      order: 1
+  .blog-head
+    padding-top: 30%
   .footer-fluid
     .brand-danfors
       order: 4
@@ -1207,30 +1720,45 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
   .hero-items
     margin-top: -5%
 @media (max-width: 800px)
+  .article-medium-row
+    flex-direction: column
+  .article-medium-link
+    width: 100%
+  .article-medium
+    padding: 9em 0em
   .hero-items
     margin-top: 0%
   .search-func
     ul
+      label
+        width: 100%
+      input
+        width: 100%
+      select
+        width: 100%
       display: list-item
     .sf-field-search
       width: 100% !important
     .sf-field-post-meta-utgangspris
       width: 100% !important
       label
-        // width: 48% !important
+        width: 48.6% !important
 
     .sf-field-submit
       width: 100% !important
       input
         width: 100% !important
-@media (max-width: 768px)
-  .art-row
-    padding-left: 1.5em
-    padding-right: 1.5em
-  .article
-    padding-right: 0
+@media (max-width: 725px)
+  // .blog-card-var
+  //   margin-left: 0
 
 
+
+@media (max-width: 593px)
+  .danfors-media
+    .media-section
+      .media-col
+        margin: 0
 @media (max-width: 767px)
   .selected-listing
     margin-top: 18em
@@ -1238,6 +1766,17 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
   .selected-listing
     h1
       margin-top: 3.5em
+@media (max-width: 660px)
+  .articles
+    .article-img
+      height: 10em
+    .article
+      flex-direction: column
+      min-width: 300px
+      height: 100%
+      a
+        width: 100%
+        height: 20%
 @media (max-width: 698px)
   .sf-meta-range
     display: flex
@@ -1250,7 +1789,13 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
     div
       width: 100% !important
 
+@media (max-width: 596px)
+  .contact-form-part
+    width: 100%
+    margin-top: 2em
 @media (max-width: 500px)
+  .blog-head
+    padding-top: 50%
   .hero-danfors
     height: 72vh
     padding: 38% 0 30% 0
@@ -1265,4 +1810,8 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
   .hero-danfors
     padding: 43% 0 30% 0
     .hero-text
-      font-size: 2.3em
+      font-size: 2.15em
+@media (max-width: 330px)
+  .articles
+    .article
+      min-width: 275px
