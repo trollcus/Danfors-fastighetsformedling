@@ -53,7 +53,7 @@ get_header(); ?>
 
 <section class="selected-listing">
   <div class="container">
-    <h1 class="col-sm-12 text-center">Eller kolla några utav våra utvalda hus?</h1>
+    <h1 class="col-sm-12 text-center">Eller inspektera några utav våra utvalda objekt?</h1>
     <div class="row">
       <div class="col-sm-12 list-section responsive">
         <?php $loop = new WP_Query( array( 'post_type' => 'bostad', 'orderby' => 'post_id', 'order' => 'ASC', 'posts_per_page' => '8', 'featured' => 'no')); ?>
@@ -137,7 +137,7 @@ get_header(); ?>
 <section class="kunskap-section">
   <div class="container-fluid kunskap-fluid">
     <h1 class="col-sm-12 text-center kunskapsbank-title">Kunskapsbanken</h1>
-    <p class="lead text-center">Vi har även en massa artiklar för att hjälpa guida dig igenom ditt husköp</p>
+    <p class="lead text-center">Vi har en massa artiklar för att hjälpa guida dig igenom ditt husköp</p>
 
     <div class="articles">
             <!-- Inlägg små -->
@@ -181,8 +181,8 @@ get_header(); ?>
 
 <section class="danfors-blog text-center">
   <div class="container-fluid kunskap-fluid">
-    <h1>Och massa bra blogginlägg med våra annonser</h1>
-    <p class="lead">Vi är involverade i flera projekt för att utveckla och göra västkusten till en ännu bättre plats att leva på. Här kan ni följa vår framgång och vad vi just nu utvecklar.</p>
+    <h1>Aktuellt hos Danfors Fastighetsförmedling</h1>
+    <p class="lead">Vi har massa bra blogginlägg med bland annat våra annonser för dig att läsa igenom</p>
     <div class="cards">
 
 
@@ -237,7 +237,7 @@ get_header(); ?>
   <a href="<?php echo get_site_url(); ?>/aktuellt"><button class="btn btn-lg btn-primary btn-show">Visa fler</button></a>
 </section>
 
-	
+
 
 <?php
 get_footer();
