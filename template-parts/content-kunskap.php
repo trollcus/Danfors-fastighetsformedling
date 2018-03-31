@@ -10,8 +10,8 @@
 ?>
 
 <div class="article">
-  <a href="<? the_permalink(); ?>">
-    <div class="article-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
+  <a href="<?php the_permalink(); ?>">
+    <div class="article-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
 
   </div></a>
   <div class="article-text">
@@ -21,7 +21,13 @@
     <a href="<? the_permalink(); ?>"><button class="btn btn-primary article-btn">Läs mer</button></a>
     <div class="article-row">
       <div class="tags">
-        <p><?php the_tags('', '', ''); ?></p>
+        <p><?php $posttags = get_the_tags();
+            if ($posttags) {
+            foreach($posttags as $tag) {
+              echo $tag->name . ' ';
+            }
+          }
+        ?></p>
       </div>
     </div>
   </div>

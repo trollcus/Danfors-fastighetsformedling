@@ -22,12 +22,18 @@
             console.log('error loading ' + element.data('src'));
         },
         afterLoad: function(element) {
-            console.log("addsd");
+            // console.log("addsd");
         }
     });
 
 $(document).ready(function(){
 
+  $("a[href^='data:image']").each(function(){
+    $(this).slimbox({
+        content: $("<img/>").attr("src", this.href)
+    });
+    console.log('asd');
+});
 
   $('.responsive').slick({
   dots: true,

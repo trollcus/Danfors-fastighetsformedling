@@ -10,9 +10,9 @@
 ?>
 
 
-<a href="<? the_permalink(); ?>">
+<a href="<?php the_permalink(); ?>">
   <div class="blog-card-var">
-    <div class="blog-card-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
+    <div class="blog-card-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>"></div>
     <h4><?php echo the_title(); ?></h4>
     <div class="col-xs-12">
       <div class="author-blog">
@@ -26,7 +26,7 @@
             setup_postdata( $post );
 
             ?>
-        <div class="author-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
+        <div class="author-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>"></div>
         <div class="author-blog-info">
           <div class="author-name">
             <?php the_title(); ?>

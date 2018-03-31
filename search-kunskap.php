@@ -13,8 +13,8 @@ get_header(); ?>
   <main id="main" class="site-main">
     <section class="hero hero-kunskap col-sm-12 blog-head fadeIMG" data-src="<?php echo site_url(); ?>/wp-content/themes/danfors/assets/images/knowledge.jpg">
       <div class="container text-center hero-items">
-        <h1 class="hero-text">Kunskapsbank</h1>
-        <p class="lead">Här kan ni titta igenom våran stora kunskapsbank. Här kan ni läsa om hela processen kring att köpa ett hus eller varför man ska anlita en mäklare</p>
+        <h1 class="hero-text">Kunskapsbanken</h1>
+        <p class="lead">Här kan ni titta igenom vår stora kunskapsbank. Här kan ni läsa om hela processen kring att köpa ett hus eller varför man ska anlita en mäklare</p>
       </div>
     </section>
     <section class="search col-sm-10 col-sm-offset-1 col-xs-12 search-page-listing-box kunskap-search">

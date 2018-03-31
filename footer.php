@@ -16,10 +16,10 @@
 	<footer id="colophon" class="site-footer">
 		<div class="footer-fluid">
 			<div class="brand-danfors">
-				<img src="http://localhost:8888/wp-content/themes/danfors/assets/images/logo_bla.png" alt="#" />
+				<a href="<?php echo get_site_url(); ?>/"><img src="<?php echo get_site_url(); ?>/wp-content/themes/danfors/assets/images/logo_bla.png" alt="Blå Logo Danfors" /></a>
 				<p>Din lokala mäklare</p>
 				<div class="socialFooter">
-				<a href="#" class="link-icon">
+				<a href="https://www.facebook.com/Danfors-Fastighetsf%C3%B6rmedling-204544782891322/" class="link-icon">
 				<svg width="20px" height="20px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				    <desc>Facebook</desc>
 				    <defs></defs>
@@ -32,7 +32,7 @@
 				    </g>
 				</svg>
 				</a>
-				<a href="#" class="link-icon">
+				<a href="https://www.instagram.com/danfors.se/" class="link-icon">
 				<svg width="20px" height="20px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				    <desc>Instagram</desc>
 				    <defs></defs>
@@ -65,15 +65,18 @@
 				<ul>
 				<?php while( $loop->have_posts() ) : $loop->the_post(); ?>
 
-							<li><a href="<? the_permalink(); ?>"><?php the_title(); ?></a></li>
+							<li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
 
         <?php endwhile; wp_reset_query(); ?>
 
 				</ul>
 			</div>
 			<div class="nyhetsbrev-danfors">
+
 				<p class="object-title">Nyhetsbrev</p>
-				<p>Skriv upp dig på vårt nyhetsbrev</p>
+				<p>Detta nyhetsbrev kommer snart</p>
+				<!-- <p>Skriv upp dig på vårt nyhetsbrev</p> -->
+				<!-- <?php echo do_shortcode( '[newsletters_subscribe form=1]' ); ?> -->
 				<input type="text" placeholder="Dinmail@mail.com">
 				<button>Bekräfta</button>
 			</div>
@@ -84,11 +87,13 @@
 <!-- Jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/danfors/js/slimbox2.js"></script>
+
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmIkJw5rfPQmYCwkdm3-UqJEZnTSt1pPM"></script>
 
 <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 <!-- Lazy loading -->
-<script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/danfors/js/jquery.lazy.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.6/jquery.lazy.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 

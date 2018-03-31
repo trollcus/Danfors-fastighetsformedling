@@ -12,8 +12,12 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 
-		<main id="main" class="site-main">
-      <section class="list-hero fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>" >
+		<main id="main" class="site-main"><?php
+			$rows = get_field('objekt_id' ); // get all the rows
+			$first_row = $rows[0];
+			$first_row_image = $first_row['bild_id' ]; // get the first row
+			?>
+      <section class="list-hero fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>" >
 
       </section>
       <section class="listing-content">
@@ -26,13 +30,16 @@ get_header(); ?>
             <h1 class="text-center small"><?php echo get_field('adress'); echo ' '; echo get_field('adress_omrade'); echo ' '; echo get_field('adress_kommun'); ?></h1>
             <h1 class="text-center"><?php the_title(); ?></h1>
             <p class="text-center lead desc-text"><?php echo get_field('beskrivande_text'); ?></p>
+						<?php $price_list = get_field('utgangspris');
+							if(!empty($price_list)): ?>
             <h2 class="text-center list-price">Utgångspris: <?php
-									$price_list = get_field('utgangspris');
+
 									$formatted_price = number_format($price_list, 0, ' ', ' ');
 									echo $formatted_price; ?> :-</h2>
-			            <div class="container-fluid">
+							<?php endif; ?>
+			        <div class="container-fluid">
               <div class="row desc_agent">
-                <div class="col-sm-5 desc-agent-item">
+                <div class="col-sm-12 desc-agent-item">
                   <?php
 
                     $maklare = get_field('ansvarig_maklare');
@@ -47,9 +54,9 @@ get_header(); ?>
 
                       <div class="col-xs-4 maklare-bild" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)">
                       </div>
-                      <div class="col-xs-8">
+                      <div class="col-xs-8 maklare-info">
                         <h4><?php the_title(); ?></h4>
-                        <p>Ansvarig Mäklare</p>
+                        <p class="lead-small">Ansvarig Mäklare</p>
                         <h5>Telefonnummer: <a href="tel:<?php echo get_field('maklare_telefon')?>"><?php echo get_field('maklare_telefon')?></a></h5>
                         <h5>Mail: <a href="mailto:<?php echo get_field('maklare_mail')?>"><?php echo get_field('maklare_mail')?></a></h5>
 
@@ -99,37 +106,68 @@ get_header(); ?>
             <?php
 
               $images = get_field('bilder');
+              $imagesBase = get_field('objekt_id');
+							$img_field = get_field('bildtexter');
+							$img_text = $img_field['img_text'];
+							$imgNr = 0;
+							$imgTracker = [];
 
-              if( $images ): ?>
+            ?>
                   <div class="col-sm-12 tab-pane active" id="images">
+
+
                       <?php foreach( $images as $image ): ?>
                           <div class="bilder-field">
 
                               <a href="<?php echo $image['url']; ?>" data-rel=”lightbox”>
-                                   <img class="list-img fadeIMG" data-src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                   <img class="list-img fadeIMG" data-src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $img_field[$imgNr]['img_text']; ?>" />
                               </a>
-                              <p><?php echo $image['caption']; ?></p>
+                              <p><?php
+															$imageTextAlt = $image['alt'];
+															if(empty($imageTextAlt)) {
+																if(strpos($img_field[$imgNr]['img_text'], 'Planlösning') || strpos($img_field[$imgNr]['img_text'], 'Planritning') !== false) {
+																	$imgTracker[] = $imgNr;
+																}
+																echo $img_field[$imgNr]['img_text'];
+															} else {
+																echo $image_plan['alt'];
+															}
+																?></p>
+
+
                           </div>
+												<?php $imgNr++ ?>
                       <?php endforeach; ?>
                   </div>
-              <?php endif; ?>
+
+
               <div class="col-sm-12 tab-pane fade" id="planlosning">
-								<?php
 
-									$plan_images = get_field('planlosning');
 
-									if( $plan_images ): ?>
+
+											<?php $imagesPlan = get_field('bilder'); ?>
+											<?php if( $imagesPlan ): ?>
+											<?php foreach( $imgTracker as $imageTrack ): ?>
+
 											<div class="col-sm-12 tab-pane active" id="images">
-													<?php foreach( $plan_images as $image_plan ): ?>
-															<div class="bilder-field">
+		                          <div class="bilder-field">
+		                              <a href="<?php echo $imagesPlan[$imageTrack]['url']; ?>" data-rel=”lightbox”>
+		                                   <img class="list-img fadeIMG" data-src="<?php echo $imagesPlan[$imageTrack]['sizes']['large']; ?>" alt="<?php echo $img_field[$imageTrack]['img_text']; ?>" />
+		                              </a>
+		                              <p><?php
+																	$imageTextAlt = $imagesPlan['alt'];
+																	if(empty($imageTextAlt)) {
+																		echo $img_field[$imageTrack]['img_text'];
+																	} else {
+																		echo $imagesPlan['alt'];
+																	}
+																		?></p>
 
-																	<a href="<?php echo $image_plan['url']; ?>">
-																			 <img class="list-img" src="<?php echo $image_plan['sizes']['large']; ?>" alt="<?php echo $image_plan['alt']; ?>" />
-																	</a>
-																	<p><?php echo $image_plan['caption']; ?></p>
-															</div>
-													<?php endforeach; ?>
-											</div>
+
+		                          </div>
+
+		                  </div>
+											<?php endforeach; ?>
 									<?php endif; ?>
               </div>
 
@@ -171,7 +209,7 @@ get_header(); ?>
 
                           	foreach($rows as $row)
                           	{
-															if($row['byggnad_typ_av_data']['0']) {
+															if($row['byggnad_antaltyp']) {
                           		echo '<tr><td><h5>' . $row['byggnad_typ_av_data']['0'] . ':</h5></td><td><h5>' . $row['byggnad_antaltyp'] .'</h5></td></tr>';
 															}
                           	}
@@ -193,8 +231,9 @@ get_header(); ?>
                             echo '<h3>Driftkostnad</h3>';
                           	foreach($rows as $row)
                           	{
-															if($row['driftkostnad_typ_av_data']['0']) {
-                          		echo '<tr><td><h5>' . $row['driftkostnad_typ_av_data']['0'] . ':</h5></td><td><h5>' . $row['driftkostnad_taxering_antaltyp'] .'</h5></td></tr>';
+															if($row['driftkostnad_taxering_antaltyp'] || $row['driftkostnad_taxering_antaltyp'] != '0') {
+															$formatted_price_drift = number_format($row['driftkostnad_taxering_antaltyp'], 0, ' ', ' ');
+                          		echo '<tr><td><h5>' . $row['driftkostnad_typ_av_data']['0'] . ':</h5></td><td><h5>' . $formatted_price_drift .'</h5></td></tr>';
 															}
 														}
 
@@ -215,7 +254,7 @@ get_header(); ?>
 
                           foreach($rows as $row)
                           {
-														if($row['taxering_typ_av_data']['0']) {
+														if($row['taxering_antaltyp']) {
                             	echo '<tr><td><h5>' . $row['taxering_typ_av_data']['0'] . ':</h5></td><td><h5>' . $row['taxering_antaltyp'] .'</h5></td></tr>';
 														}
 													}
@@ -294,7 +333,7 @@ get_header(); ?>
 			      ?>
 			      <?php while( $blog->have_posts() ) : $blog->the_post(); ?>
 			        <?php $date_post = get_the_date(); ?>
-			      <a href="<? the_permalink(); ?>">
+			      <a href="<?php the_permalink(); ?>">
 			        <div class="blog-card-var">
 			          <div class="blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
 			          <h4><?php echo the_title(); ?></h4>

@@ -95,6 +95,74 @@ function danfors_content_width() {
 }
 add_action( 'after_setup_theme', 'danfors_content_width', 0 );
 
+add_action('pmxi_before_xml_import', 'before_xml_import', 10, 1);
+
+/* Before WPAllimport, is required for importing images and putting them in correct structure */
+
+// function before_xml_import($import_id) {
+//   	echo 'pmxi_before_xml_import';
+//     // Import images from vitec Connect
+// 		// echo "http://$_SERVER[HTTP_HOST]/wp-content/uploads/wpallimport/files/{$list_id}/{$imageID}_$imageText.jpg";
+// 		$readJSON = file_get_contents("http://$_SERVER[HTTP_HOST]/wp-content/uploads/wpallimport/files/test123.json");
+// 		$decodedJSON = json_decode($readJSON, true);
+// 		foreach houses -> if status name = 'Till salu' > get id and call for function to go through each folder file_get_contents("http://$_SERVER[HTTP_HOST]/wp-content/uploads/wpallimport/files/objektID/objektID.json"); -> foreach images as image get url and text
+//     // Foreach Objekt, Bring imageID when fetching each image as an argument for naming reason -> foreach -> Image -> Get response code and store the image with correct name
+//     // WPALLimport has imageID and locates it using name on image
+//
+//
+// 		function imageImporter($imageURL, $objectName, $list_id){
+// 			$URL = $imageURL;
+// 			// $URL = "https://connect.maklare.vitec.net:443/image/GetImage?customerId=M31845&imageId=MEDAC2F81A02A6E4C77BF289420DBD79F99";
+//
+// 			$ch = curl_init();
+//
+// 			curl_setopt($ch, CURLOPT_USERNAME, "224");
+// 			curl_setopt($ch, CURLOPT_PASSWORD, "oFK66Odooi0anQQRMKN2a8fKkhdlQubUvLqXKV8rjicurNCDDNxaCXKgZ0JMjpMs");
+// 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+// 			curl_setopt($ch, CURLOPT_BINARYTRANSFER, 1);
+// 			curl_setopt($ch, CURLOPT_URL, $URL);
+//
+// 			$result = curl_exec($ch);
+//
+// 			if (curl_errno($ch)) {
+// 			    die(curl_getinfo($ch));
+// 			}
+//
+// 			$info = curl_getinfo($ch);
+// 			curl_close($ch);
+//
+// 			$http_code = $info["http_code"];
+// 			if ($http_code == 401) {
+// 			    // Användarnamnet eller lösenordet är felaktigt
+// 			}
+// 			if ($http_code == 403) {
+// 			    // Begärt data som det saknas åtkomst till
+// 			}
+// 			if ($http_code == 500) {
+// 			    // Oväntat fel, kontakta Vitec
+// 			}
+// 			if ($http_code == 400) {
+// 			    $json = json_decode($result, true);
+// 			    // Hantera valideringsfel, presenteras i $json
+// 			}
+// 			$imageCode = base64_encode($result);
+//
+//
+// 			// correct
+// 			mkdir("../wp-content/uploads/wpallimport/files/{$list_id}", 0777, true);
+// 			file_put_contents( "../wp-content/uploads/wpallimport/files/{$list_id}/{$objectName}_{$imageText}.jpg" , base64_decode($imageCode));
+// 			// return $imageCode;
+//
+// }
+//
+//
+//
+//
+//
+// }
+
+
+/* End of WPAllimport function */
 
 function my_acf_init() {
 
@@ -102,6 +170,19 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
+// Added to extend allowed files types in Media upload
+add_filter('upload_mimes', 'custom_upload_mimes');
+function custom_upload_mimes ( $existing_mimes=array() ) {
+
+// Add *.EPS files to Media upload
+$existing_mimes['eps'] = 'application/postscript';
+
+// Add *.AI files to Media upload
+$existing_mimes['ai'] = 'application/postscript';
+
+return $existing_mimes;
+}
 
 /**
  * Register widget area.

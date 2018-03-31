@@ -3,7 +3,7 @@
     <h1 class="text-center">Följ oss på sociala medier</h1><br>
 
     <div class="media-container">
-
+      <a href="https://www.facebook.com/Danfors-Fastighetsf%C3%B6rmedling-204544782891322/">
       <svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
           <desc>Facebook</desc>
@@ -20,14 +20,15 @@
               </g>
           </g>
       </svg>
+      </a>
 
 
-
+      <a href="https://www.instagram.com/danfors.se/">
     <svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <!-- Generator: Sketch 47 (45396) - http://www.bohemiancoding.com/sketch -->
         <desc>Instagram</desc>
         <defs></defs>
-        <g id="Sketch" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Sketch" stroke="none" stroke-width="1" fill-rule="evenodd">
             <g id="Kontakt" transform="translate(-760.000000, -2045.000000)" fill-rule="nonzero" fill="#191919">
                 <g id="Group-20" transform="translate(503.000000, 1943.000000)">
                     <g id="Group-19" transform="translate(117.000000, 102.000000)">
@@ -39,6 +40,7 @@
             </g>
         </g>
     </svg>
+    </a>
 
     </div>
 

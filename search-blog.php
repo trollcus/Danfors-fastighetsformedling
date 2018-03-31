@@ -21,9 +21,9 @@ get_header(); ?>
 		<?php
 		if ( have_posts() ) : ?>
 		<div class="container-fluid">
-			<section class="villaguiden-section">
+			<!-- <section class="villaguiden-section">
 				<p>asd</p>
-			</section>
+			</section> -->
 			<!-- <section class="search col-xs-12 col-lg-3 search-blog-section">
 				<div class="col-xs-12 search-func search-blog">
 						<?php echo do_shortcode( '[searchandfilter id="251"]' ); ?>

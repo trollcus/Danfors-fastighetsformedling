@@ -37,7 +37,7 @@ get_header(); ?>
               </svg>
             </div>
             <div>
-              <p>Kostnadsfri försäljning</p>
+              <p>Kostnadsfri försäljningsvärdering</p>
           </div>
           </li>
           <li>
@@ -128,7 +128,7 @@ get_header(); ?>
       <?php while( $member->have_posts() ) : $member->the_post(); ?>
 
           <div class="text-center office-worker">
-            <?php the_post_thumbnail(); ?>
+            <img src="<?php the_post_thumbnail_url( 'medium' ); ?>" width="100" />
             <h5><?php the_title(); ?></h5>
             <h5><a href="tel:<?php echo get_field('maklare_telefon')?>"><?php echo get_field('maklare_telefon')?></a></h5>
             <h5><a href="mailto:<?php echo get_field('maklare_mail')?>"><?php echo get_field('maklare_mail')?></a></h5>
@@ -154,7 +154,7 @@ get_header(); ?>
       <?php while( $member->have_posts() ) : $member->the_post(); ?>
 
           <div class="text-center office-worker">
-            <?php the_post_thumbnail(); ?>
+            <img src="<?php the_post_thumbnail_url( 'medium' ); ?>" width="100" />
             <h5><?php the_title(); ?></h5>
             <h5><a href="tel:<?php echo get_field('maklare_telefon')?>"><?php echo get_field('maklare_telefon')?></a></h5>
             <h5><a href="mailto:<?php echo get_field('maklare_mail')?>"><?php echo get_field('maklare_mail')?></a></h5>

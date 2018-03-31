@@ -9,6 +9,10 @@ $bluegradient: linear-gradient(229deg, #1E5D9D 0%, #4487BA 100%)
 $boxshadow: 0 0 24px 0 rgba(0,0,0,0.08)
 $radius: 7px
 
+a
+  &:visited
+    color: $blue
+
 @keyframes shadow
   0%
     box-shadow: 0 0 24px 0 rgba(0,0,0,0.13)
@@ -102,12 +106,13 @@ footer
     flex-direction: column
     display: flex
     font-weight: 300
-    input
-      padding: 0.5em
+    input, #wpml-1email
+      padding: 0.4em
       margin-bottom: 2em
       margin-top: 1em
       background-color: $lightgrey
-
+      outline: none
+      font-style: italic
       border-left-width: 0px
       border-right-width: 0px
       border-top-width: 0px
@@ -115,6 +120,7 @@ footer
       border-bottom-width: 1px
       border-color: $blue
       letter-spacing: 0.09em
+      box-shadow: none
       &:active
         outline: none !important
       &:focus
@@ -122,7 +128,8 @@ footer
       &:visited
         outline: none
 
-    button
+    button, #newsletters-1-button
+      width: 100%
       background-color: $lightgrey
       border-color: $blue
       font-weight: 400
@@ -133,6 +140,19 @@ footer
       &:hover
         background-color: $blue
         color: $white
+    .wpmlcustomfield1
+      display: none
+    .clearfix
+      display: none
+    #newsletters-1-form-wrapper
+      padding: 0
+    .newsletters-fieldholder
+      padding: 0
+      margin-top: 0
+      width: 100%
+    .newsletters-form-wrapper
+      margin-top: 0
+      width: 100%
 
 
   ul
@@ -175,12 +195,7 @@ footer
             fill: #08498c
             transition: 0.3s
 
-// .hero-kunskap
-//   background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/knowledge.jpg')
-// .hero-blog
-//   background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/blog.jpg')
-// .hero-tillsalu
-//   background: url('http://localhost:8888/wp-content/themes/danfors/assets/images/tillsalu.jpg')
+
 .hero
   height: 60vh
   padding: 20% 0 30% 0
@@ -269,24 +284,33 @@ footer
     position: absolute
     top: 0
     left: 0
-    height: 60vh
+    height: 100%
+    opacity: 1
     width: 100%
     transition: all 0.8s
-    opacity: 0.1
-    background-color: black
+    // opacity: 0.1
+    // background-color: black
     background-size: 100% 100%
     overflow: hidden
+    background-size: 100% 100%
+    /* Rectangle: */
+    background-image: linear-gradient(-180deg, rgba(0,0,0,0.00)  65%, rgba(0,0,0,0.55) 100%)
+
+
 
 
   img
     width: 100vw
     z-index: 1
+.lead-small
+  font-weight: 300
+
 .listing-content
   z-index: 20
   position: relative
   .desc_agent
     margin-top: 3em
-    padding: 0 2em
+    // padding: 0 2em
   .desc-agent-item
 
     padding-left: 0
@@ -294,6 +318,7 @@ footer
       margin-left: 37.5px
     h4
       margin-top: 0.3em
+      margin-bottom: 0.08em
   .desc
     padding-top: 1em
     padding-bottom: 1em
@@ -332,7 +357,8 @@ footer
   &:hover
     .list-image
       &:before
-        opacity: 0.3
+        opacity: 0.4
+        background-color: black
 
 
 
@@ -349,6 +375,7 @@ footer
 .list-image
   overflow: hidden
   max-height: 357.641px
+  position: relative
   img
     transition: 0.8s
   &:before
@@ -359,9 +386,11 @@ footer
     height: 100%
     width: 100%
     transition: all 0.8s
-    opacity: 0.1
-    background-color: black
+    opacity: 1
+    // background-color: black
     background-size: 100% 100%
+    /* Rectangle: */
+    background-image: linear-gradient(-180deg, rgba(0,0,0,0.00)  65%, rgba(0,0,0,0.55) 100%)
 
 .list-img
   background-size: cover
@@ -370,7 +399,9 @@ footer
   background-position: center center
   width: 100%
 
-
+.listing-container
+  &:nth-child(7n)
+    clear: both
 
 .list-items
   z-index: 2
@@ -381,8 +412,10 @@ footer
   width: 100%
   margin: 0
   font-size: 1.1em
+  min-height: 111.35px
   .list-omrade
     color: $grey
+    min-height: 15px
 
 .list-section
   margin: 6em 0
@@ -423,13 +456,17 @@ footer
     flex-direction: row
     flex-wrap: wrap
     justify-content: space-between
-    padding: 1.5em 3em
+    padding: 0em 1em
     .office-worker
       margin: 0.5em
-
+      word-break: break
       flex: 1
+      min-width: 145px
     img
       border-radius: 50%
+
+.about-hero
+  background-position: center 30%
 
 // Danfors media
 .danfors-media
@@ -439,6 +476,8 @@ footer
   display: flex
   flex-direction: column
   align-items: center
+  h2
+    margin-bottom: 20px
   .media-list-container
     p
       color: $grey
@@ -447,6 +486,9 @@ footer
       font-size: 110%
       margin: 1em auto
   .media-list
+    a
+      &:hover
+        text-decoration: none
     ul
       margin: 0
       padding: 0
@@ -592,14 +634,18 @@ footer
   justify-content: center
   margin-bottom: 2em
   height: 100%
+
   p
     margin-top: 1.2em
     font-size: 1.05em
   a
     height: 100%
-    img
-      height: 100%
-      width: 100%
+  .list-img
+    height: 100%
+    max-width: 1024px
+  img
+    height: 100%
+    width: 100%
 
 .CTA-blog
   background-image: $bluegradient
@@ -631,9 +677,15 @@ footer
       height: 50px
       transition: 0.5s
       cursor: pointer
+      path
+        fill: black
       &:hover
         transform: scale(1.1)
         transform: translateY(-3px)
+        path
+          fill: $blue
+
+
 
 // Contact sektion
 
@@ -642,10 +694,14 @@ footer
   width: 50%
   .wpcf7-submit
     background: $bluegradient
-    font-size: 14px
+    font-size: 16px
     padding: 1em 3.5em
-    font-weight: 300
+    font-weight: 400
     color: $white
+    transition: 0.3s
+    &:hover
+      transform: translateY(-5px) scale(1.005)
+      box-shadow: $boxshadow
   label
     font-weight: 300
     width: 100%
@@ -655,6 +711,7 @@ footer
     padding: 1em 0.9em
     border-radius: 7px
     margin-top: 0.3em
+    font-size: 16px
 
     &:focus
       outline-color: $blue
@@ -662,7 +719,9 @@ footer
     border: none
     background-color: $white
     border-radius: 7px
-    max-width: 351px
+    padding: 0.5em
+    font-size: 16px
+    // max-width: 351px
     width: 100% !important
     &:focus
       outline-color: $blue
@@ -732,10 +791,13 @@ footer
   height: 100%
   padding-top: 2em
   padding-bottom: 4em
+.maklare-info
+  padding-right: 0 !important
 
 .maklare-bild
   padding: 0
   margin-right: 0.5em
+  margin-top: 0.3em
   background:
     size: cover
     repeat: no-repeat
@@ -749,6 +811,7 @@ footer
 
 .share-list
   text-align: right
+  margin-top: 22px
 
 // .navbar-header
 //   float: left
@@ -849,7 +912,6 @@ footer
     padding-left: 10%
     padding-right: 10%
   .navbar-brand
-    background-image: url('http://localhost:8888/wp-content/themes/danfors/assets/images/logo_vit.png')
     width: 7.5em
     height: 3em
     background-size: cover
@@ -860,7 +922,7 @@ footer
 //       color: $blue !important
 
 .navbar-brand-fixed
-  background-image: url('http://localhost:8888/wp-content/themes/danfors/assets/images/logo_bla.png') !important
+  background-image: url('http://demo.danfors.se/wp-content/themes/danfors/assets/images/logo_bla.png') !important
 .active-nav
   background-color: white
   color: $grey !important
@@ -914,23 +976,25 @@ footer
 @keyframes text-move
   0%
     opacity: 0
-    top: 100px
-
+    // top: 100px
+    transform: translateY(100px)
   98%
     opacity: 1
-    top: -1px
+    // top: -1px
   100%
     opacity: 1
-    top: 0px
+    // top: 0px
+    transform: translateY(0px)
 
 @keyframes text-move1
   0%
-    top: -100px
-
+    // top: -100px
+    transform: translateY(-100px)
   98%
-    top: 1px
+    // top: 1px
   100%
-    top: 0px
+    // top: 0px
+    transform: translateY(0px)
 
 .list-item-house
   margin-bottom: 2em
@@ -1041,6 +1105,9 @@ footer
   justify-content: center
   overflow: auto
 
+.article-big-title, .article-medium-title
+  filter: drop-shadow(0 0 10px rgba(0,0,0,0.30))
+
 .article-big-link
   width: 100%
   margin-top: 4em
@@ -1106,9 +1173,10 @@ footer
   max-width: 1280px
   display: flex
   flex-wrap: wrap
-  justify-content: space-between
+  justify-content: space-around
   overflow: auto
   padding-bottom: 2em
+
   .article
     color: $grey
     padding-left: 0
@@ -1176,14 +1244,12 @@ footer
     font-size: 15px
   .tags
     p
-      a
+      color: $blue
+      cursor: default
+      &:visited
         color: $blue
-        cursor: pointer
-        &:visited
-          color: $blue
-        &:hover
-          color: $lightblue
-          text-decoration: none
+      &:hover
+        text-decoration: none
 .test
   background-repeat: no-repeat
   background-size: cover
@@ -1276,13 +1342,13 @@ body
   width: 100%
   justify-content: space-around
   max-width: 1000px
-a
-  text-decoration: none
-  overflow: auto
-  div
-    width: 285px
-    .blog-card-img
-      width: 100%
+  a
+    text-decoration: none
+    overflow: auto
+    div
+      width: 285px
+      .blog-card-img
+        width: 100%
 
 .blog-card-var
   background-color: $white
@@ -1653,6 +1719,7 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
       .hakan
         order: 2
         margin-left: 40%
+        padding: 7em 0
       .hakan-text
         padding: 0
         width: 90%
@@ -1666,6 +1733,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
   .cta-blog-random
     text-align: center
     margin-bottom: 3em
+  // .maklare-bild
+  //   margin-left: 15px
+  //   margin-bottom: 15px
+  // .share-list
+  //   margin-top: 15px
 @media (max-width: 890px)
   .office
     flex-direction: column
@@ -1712,6 +1784,11 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
         &:visited
           display: none !important
 
+
+@media (max-width: 1199px)
+  .hero-danfors
+    svg
+      display: none
 
 @media (max-width: 1100px)
   .hero-danfors
@@ -1803,14 +1880,32 @@ input::-webkit-outer-spin-button, input::-webkit-inner-spin-button
     margin-top: 0
   .selected-listing
     h1
-      margin-top: 5.5em
+      margin-top: 6.5em
       margin-bottom: -0.5em
 
+@media (max-width: 395px)
+  .contact-cta
+    h1
+      font-size: 31px
+      word-wrap: break-word
+@media (max-width: 377px)
+  .list-text
+    font-size: 13px
 @media (max-width: 376px)
   .hero-danfors
     padding: 43% 0 30% 0
     .hero-text
       font-size: 2.15em
+@media (max-width: 360px)
+  .list-text
+    font-size: 12px
+@media (max-width: 345px)
+  .list-text
+    font-size: 11px
+  .meet-hakan
+    .contain
+      .hakan
+        padding: 6em 0
 @media (max-width: 330px)
   .articles
     .article

@@ -7,8 +7,8 @@ get_header(); ?>
 
 <section class="hero-danfors col-sm-12">
   <div class="container text-center hero-items">
-    <h1 class="hero-text">Välkommen till Danfors<br>Fastighetsförmedling</h1>
-    <a href="<?php echo get_site_url(); ?>/till-salu"><button class="btn btn-danfors-white text-center">Hus till salu</button></a>
+    <h1 class="hero-text">Välkommen till<br>Danfors Fastighetsförmedling</h1>
+    <a href="<?php echo get_site_url(); ?>/till-salu"><button class="btn btn-danfors-white text-center">Till salu</button></a>
   </div>
 
 
@@ -50,43 +50,69 @@ get_header(); ?>
     <h1 class="col-sm-12 text-center">Utvalda hus</h1>
     <div class="row">
       <div class="col-sm-12 list-section responsive">
-        <?php $loop = new WP_Query( array( 'post_type' => 'bostad', 'orderby' => 'post_id', 'order' => 'ASC', 'posts_per_page' => '8', 'featured' => 'yes')); ?>
+        <?php $loop = new WP_Query( array( 'post_type' => 'bostad', 'orderby' => 'post_id', 'order' => 'ASC', 'posts_per_page' => '8', 'featured' => 'no')); ?>
         <?php while( $loop->have_posts() ) : $loop->the_post(); ?>
           <div class="col-sm-6 list-item-house">
             <div class="listing">
 
-              <a href="<? the_permalink(); ?>">
+              <a href="<?php the_permalink(); ?>">
                 <div class="list-text-wrap">
                   <h4 class="home-list-title"><?php the_title(); ?></h4>
                   <p class="home-list-desc"><?php $desc = get_field('beskrivande_text');
                     echo $desc;
                    ?></p>
                 </div>
-                  <div class="list-image list-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
+                <?php
+
+                  $rows = get_field('objekt_id' ); // get all the rows
+                  $first_row = $rows[0];
+                  $first_row_image = $first_row['bild_id' ]; // get the first row
+                  ?>
+
+                  <!-- <div class="list-image list-img fadeIMG" data-src="<?php echo 'data:image/jpeg;base64,', $first_row_image ?>"> -->
+                  <div class="list-image list-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
                     <!-- <?php the_post_thumbnail(); ?> -->
                   </div>
 
 
 
                  <div class="row text-center list-items">
-                   <h5><?php echo get_field('adress_omrade') ?>, <?php echo get_field('adress_kommun') ?></h5>
-                   <h5 class="list-omrade"><?php
+                   <h5><?php
+                   $omrade_house = get_field('adress_omrade');
+                   if(!empty($omrade_house)) {
+                     echo get_field('adress_omrade');
+                     echo ', ';
+
+                   }
+                   echo get_field('adress_kommun');
+                   ?>
+                   </h5>
+                   <?php
        									$price_list = get_field('utgangspris');
-       									$formatted_price = number_format($price_list, 0, ' ', ' ');
-       									echo $formatted_price; ?> :-</h5>
+       									$formatted_price = number_format($price_list, 0, ' ', ' '); ?>
+                    <h5 class="list-omrade">
+                    <?php if(!empty($formatted_price) || $formatted_price > "0"): ?>
+
+       									<?php echo $formatted_price; ?> :-<?php endif; ?></h5>
                    <div class="col-xs-4">
-                     <h5 class="text-center"><span class="glyphicon glyphicon-home"></span>&nbsp; &nbsp;<?php $rum = get_field('antal_rum');
-                     echo $rum;
-                    ?> rum</h5></div>
+                     <h5 class="text-center list-text"><span class="glyphicon glyphicon-home"></span>&nbsp; &nbsp;
+                       <?php $rum = get_field('antal_rum');
+                       if(!empty($rum) || $rum > '0'): ?>
+                    <?php echo $rum; ?>
+                    rum<?php endif; ?></h5></div>
                    <div class="col-xs-4">
-                     <h5 class="text-center"><span class="glyphicon glyphicon-tree-deciduous"></span>&nbsp; &nbsp;<?php $tomtarea = get_field('tomtarea');
-                     echo $tomtarea;
-                    ?>m²</h5>
+                     <h5 class="text-center list-text"><span class="glyphicon glyphicon-tree-deciduous"></span>&nbsp; &nbsp;
+                       <?php $tomtarea = get_field('tomtarea');
+                       if(!empty($tomtarea) || $tomtarea > '0'): ?>
+                    <?php echo $tomtarea; ?>
+                    m²<?php endif; ?></h5>
                    </div>
                    <div class="col-xs-4">
-                     <h5 class="text-center"><span class="glyphicon glyphicon-bed"></span>&nbsp; &nbsp;<?php $boarea = get_field('boarea');
-                     echo $boarea;
-                    ?>m²</h5>
+                     <h5 class="text-center list-text"><span class="glyphicon glyphicon-bed"></span>&nbsp; &nbsp;
+                       <?php $boarea = get_field('boarea');
+                       if(!empty($boarea) || $boarea > '0'): ?>
+                    <?php echo $boarea; ?>
+                    m²<?php endif; ?></h5>
                    </div>
                  </div>
               </a>
@@ -109,7 +135,7 @@ get_header(); ?>
       <div class="col-sm-6 team-text">
         <h2>Möt människorna som jobbar för dig</h2>
         <p>Vi är många medarbetare på Danfors. Det betyder att vi kan erbjuda en bred kompetens med varierande erfarenheter. Det betyder också att vi har möjlighet att ägna mer tid åt att hjälpa våra kunder. Vi har tre kontor och känner till det mesta från Båstad i söder till Halmstad i norr.</p>
-        <button class="btn btn-primary">Läs mer</button>
+        <a href="/kontakt" style="font-size:16px">Läs mer</a>
       </div>
       <div class="col-sm-4 col-sm-offset-1">
         <?php $member = new WP_Query( array( 'post_type' => 'maklare', 'orderby' => 'post_id', 'order' => 'ASC')); ?>
@@ -137,18 +163,24 @@ get_header(); ?>
             <?php $member = new WP_Query( array( 'post_type' => 'kunskap', 'orderby' => 'post_id', 'order' => 'ASC', 'posts_per_page' => '4')); ?>
             <?php while( $member->have_posts() ) : $member->the_post(); ?>
               <div class="article">
-                <a href="<? the_permalink(); ?>">
-                  <div class="article-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
+                <a href="<?php the_permalink(); ?>">
+                  <div class="article-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
 
                 </div></a>
                 <div class="article-text">
                   <p class="kunskap-title"><?php echo the_title(); ?></p>
                   <!-- <p class="kunskap-exc"></p> -->
                   <?php echo the_excerpt() ?>
-                  <a href="<? the_permalink(); ?>"><button class="btn btn-primary article-btn">Läs mer</button></a>
+                  <a href="<?php the_permalink(); ?>"><button class="btn btn-primary article-btn">Läs mer</button></a>
                   <div class="article-row">
                     <div class="tags">
-                      <p><?php the_tags('', '', ''); ?></p>
+                      <p><?php $posttags = get_the_tags();
+                          if ($posttags) {
+                          foreach($posttags as $tag) {
+                            echo $tag->name . ' ';
+                          }
+                        }
+                      ?></p>
                     </div>
                   </div>
                 </div>
@@ -188,9 +220,9 @@ get_header(); ?>
       ?>
       <?php while( $blog->have_posts() ) : $blog->the_post(); ?>
         <?php $date_post = get_the_date(); ?>
-      <a href="<? the_permalink(); ?>">
+      <a href="<?php the_permalink(); ?>">
         <div class="blog-card-var">
-          <div class="blog-card-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
+          <div class="blog-card-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'medium' ); ?>"></div>
           <h4><?php echo the_title(); ?></h4>
           <div class="col-xs-12 author-section">
             <div class="author-blog">
@@ -233,7 +265,7 @@ get_header(); ?>
   <a href="<?php echo get_site_url(); ?>/aktuellt"><button class="btn btn-lg btn-primary btn-show">Visa fler</button></a>
 </section>
 
-<a href="#" style="display:none;" id="forsaljning"><button class="cta-forsaljning">Kostnadsfri försäljningsvärdering</button></a>
+<a href="<?php echo get_site_url(); ?>/kontakt" style="display:none;" id="forsaljning"><button class="cta-forsaljning">Kostnadsfri försäljningsvärdering</button></a>
 
 <?php
 get_footer();

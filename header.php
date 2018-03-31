@@ -17,6 +17,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+	<link rel="stylesheet" href="<?php echo get_site_url(); ?>/wp-content/themes/danfors/css/slimbox2.css" type="text/css" media="screen" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#033f87">
+	<meta name="apple-mobile-web-app-title" content="Danfors Fastighetsf&ouml;rmedling">
+	<meta name="application-name" content="Danfors Fastighetsf&ouml;rmedling">
+	<meta name="theme-color" content="#ffffff">
 	<!-- Latest compiled and minified CSS -->
 	<?php wp_head(); ?>
 </head>
@@ -36,7 +45,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php echo get_site_url(); ?>"></a>
+      <a class="navbar-brand" style="background-image: url('<?php echo get_site_url(); ?>/wp-content/themes/danfors/assets/images/logo_vit.png')" href="<?php echo get_site_url(); ?>"></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

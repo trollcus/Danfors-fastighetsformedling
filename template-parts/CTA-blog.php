@@ -11,7 +11,7 @@
 		?>
 		<?php while( $blog->have_posts() ) : $blog->the_post(); ?>
 			<?php $date_post = get_the_date(); ?>
-		<a href="<? the_permalink(); ?>">
+		<a href="<?php the_permalink(); ?>">
 			<div class="blog-card-var">
 				<div class="col-xs-12 blog-card-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
 				<h4><?php echo the_title(); ?></h4>

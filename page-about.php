@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<section class="hero-sub hero-danfors col-sm-12" style="background-image:url('<?php echo the_post_thumbnail_url(); ?>'); background-repeat:no-repeat; background-size:cover;">
+<section class="hero-sub hero-danfors col-sm-12 about-hero" style="background-image:url('<?php echo the_post_thumbnail_url(); ?>'); background-repeat:no-repeat; background-size:cover;">
   <div class="container text-center hero-items">
   </div>
 
@@ -16,10 +16,11 @@ get_header(); ?>
 </section>
 <section class="meet-hakan">
   <div class="contain">
-  <div class="hakan" style=background-image:url("<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/hakan.png")></div>
+  <div class="hakan" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/hakan.png')"></div>
   <div class="hakan-text">
     <h2>Det började med Håkan</h2>
-    <p>Have you been prospecting for months on end, only to end up with no one? Or have you been trying to sell a product or service that has not been selling? Or you just kind of depressed about your current employment? There are </p>
+    <?php $hakan_text = get_field('borjade_med_hakan'); ?>
+    <p><?php echo $hakan_text ?></p>
   </div>
   </div>
 </section>
@@ -30,14 +31,15 @@ get_header(); ?>
 
       <div class="col-sm-6 team-text">
         <h2>Danfors idag</h2>
-        <p>Have you been prospecting for months on end, only to end up with no one? Or have you been trying to sell a product or service that has not been selling? Or you just kind of depressed about your current employment? There are many reasons to get down and start to get depressed about your situation. When you are down, do you know how to get back up and heading in the right direction?</p>
+        <?php $danfors_text = get_field('danfors_idag'); ?>
+        <p><?php echo $danfors_text ?></p>
       </div>
       <div class="col-sm-4 col-sm-offset-1">
         <?php $member = new WP_Query( array( 'post_type' => 'maklare', 'orderby' => 'post_id', 'order' => 'ASC')); ?>
         <?php while( $member->have_posts() ) : $member->the_post(); ?>
 
           <div class="col-xs-4 col-sm-6 text-center team-member-danfors">
-            <?php the_post_thumbnail(); ?>
+            <?php the_post_thumbnail( 'medium' ); ?>
             <h5><?php the_title(); ?></h5>
           </div>
 
@@ -66,7 +68,7 @@ get_header(); ?>
       <?php while( $member->have_posts() ) : $member->the_post(); ?>
 
           <div class="text-center office-worker">
-            <?php the_post_thumbnail(); ?>
+            <img src="<?php the_post_thumbnail_url( 'medium' ); ?>" width="100" />
             <h5><?php the_title(); ?></h5>
             <h5><a href="tel:<?php echo get_field('maklare_telefon')?>"><?php echo get_field('maklare_telefon')?></a></h5>
             <h5><a href="mailto:<?php echo get_field('maklare_mail')?>"><?php echo get_field('maklare_mail')?></a></h5>
@@ -92,7 +94,7 @@ get_header(); ?>
       <?php while( $member->have_posts() ) : $member->the_post(); ?>
 
           <div class="text-center office-worker">
-            <?php the_post_thumbnail(); ?>
+            <img src="<?php the_post_thumbnail_url( 'medium' ); ?>" width="100" />
             <h5><?php the_title(); ?></h5>
             <h5><a href="tel:<?php echo get_field('maklare_telefon')?>"><?php echo get_field('maklare_telefon')?></a></h5>
             <h5><a href="mailto:<?php echo get_field('maklare_mail')?>"><?php echo get_field('maklare_mail')?></a></h5>
@@ -152,50 +154,72 @@ get_header(); ?>
         <p>Vår logotyp finns i olika format beroende på hur den skall användas.<br>Här kan du ladda hem dem högupplösta i eps format.</p>
         <div class="media-list media-logos">
           <ul>
-            <li>
-              <div>Ladda hem vit logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-4.jpeg')"></div>
-            </li>
-            <li>
-              <div>Ladda hem blå logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-5.jpeg')"></div>
-            </li>
-            <li>
-              <div>Ladda hem svart logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-3.jpeg')"></div>
-            </li>
-            <li>
-              <div>Ladda hem svart enkel logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-6.png')"></div>
-            </li>
-            <li>
-              <div>Ladda hem vit enkel logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-7.png')"></div>
-            </li>
-            <li>
-              <div>Ladda hem blå enkel logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-8.png')"></div>
-            </li>
-            <li>
-              <div>Ladda hem citat logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-9.png')"></div>
-            </li>
-            <li>
-              <div>Ladda hem roterad citat logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-10.png')"></div>
-            </li>
-            <li>
-              <div>Ladda hem taklogo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-11.png')"></div>
-            </li>
-            <li>
-              <div>Ladda hem husnyckel logo med skugga</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-12.png')"></div>
-            </li>
-            <li>
-              <div>Ladda hem husnyckel logo</div>
-              <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-13.png')"></div>
-            </li>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-vit-logo.eps">
+              <li>
+                <div>Ladda hem vit logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-4.jpeg')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-bla-logo.eps">
+              <li>
+                <div>Ladda hem blå logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-5.jpeg')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-svart-logo.eps">
+              <li>
+                <div>Ladda hem svart logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-3.jpeg')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-enkel-svart.eps">
+              <li>
+                <div>Ladda hem svart enkel logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-6.png')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-enkel-vit.eps">
+              <li>
+                <div>Ladda hem vit enkel logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-7.png')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-enkel-bla.eps">
+              <li>
+                <div>Ladda hem blå enkel logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-8.png')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/citat-svart.eps">
+              <li>
+                <div>Ladda hem citat logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-9.png')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/citat-svart-vinklad.eps">
+              <li>
+                <div>Ladda hem roterad citat logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-10.png')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-tak.psd">
+              <li>
+                <div>Ladda hem taklogo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-11.png')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-nyckel-skugga.psd">
+              <li>
+                <div>Ladda hem husnyckel logo med skugga</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-12.png')"></div>
+              </li>
+            </a>
+            <a href="<?php echo get_site_url(); ?>/wp-content/uploads/danfors-nyckel.psd">
+              <li>
+                <div>Ladda hem husnyckel logo</div>
+                <div class="media-logo" style="background-image:url('<?php echo get_site_url(); ?>/wp-content/uploads/2017/10/asset-13.png')"></div>
+              </li>
+            </a>
 
           </ul>
         </div>

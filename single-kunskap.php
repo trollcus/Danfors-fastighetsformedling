@@ -12,7 +12,7 @@ get_header(); ?>
 <div id="primary" class="content-area">
   <main id="main" class="site-main">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <section class="list-hero fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>">
+      <section class="list-hero fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
       </section>
       <section class="kunskap-single-content">
         <div class="container">
