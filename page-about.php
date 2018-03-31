@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<section class="hero-sub hero-danfors col-sm-12 about-hero" style="background-image:url('<?php echo the_post_thumbnail_url(); ?>'); background-repeat:no-repeat; background-size:cover;">
+<section class="hero-sub hero-danfors col-sm-12 about-hero fadeInIMG" data-src="<?php echo the_post_thumbnail_url('full'); ?>" style="background-repeat:no-repeat; background-size:cover;">
   <div class="container text-center hero-items">
   </div>
 
@@ -39,7 +39,7 @@ get_header(); ?>
         <?php while( $member->have_posts() ) : $member->the_post(); ?>
 
           <div class="col-xs-4 col-sm-6 text-center team-member-danfors">
-            <?php the_post_thumbnail( 'medium' ); ?>
+            <?php the_post_thumbnail( 'medium', ['class' => 'team-member-lazy'] ); ?>
             <h5><?php the_title(); ?></h5>
           </div>
 

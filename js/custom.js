@@ -17,12 +17,12 @@
         effect: 'fadeIn',
         visibleOnly: true,
         effectTime: 500,
-        threshold: 0,
+        threshold: 800,
         onError: function(element) {
             console.log('error loading ' + element.data('src'));
         },
         afterLoad: function(element) {
-            // console.log("addsd");
+            console.log(element + " Image loaded ");
         }
     });
 
@@ -339,3 +339,45 @@ $(document).ready(function(){
 });
 
 })(jQuery);
+
+
+
+window.sr = ScrollReveal();
+sr.reveal('.article', {
+  delay: 200,
+  origin: 'right',
+  scale: 0.96,
+  distance: '0px',
+}, 50);
+sr.reveal('.blog-card-var', {
+  delay: 400,
+  origin: 'right',
+  scale: 0.96,
+  distance: '0px',
+}, 20);
+sr.reveal('.search-list', {
+  delay: 200,
+  origin: 'right',
+  scale: 0.96,
+  distance: '0px',
+}, 50);
+sr.reveal('.team-member-danfors', {
+  delay: 500,
+  origin: 'right',
+  viewFactor: 0.1,
+  scale: 1,
+  distance: '0px',
+}, 50);
+sr.reveal('.lazy-text', {
+  origin: 'bottom',
+  scale: 0.99,
+  viewFactor: 0.01,
+  distance: '0px',
+  duration: 800
+});
+sr.reveal('.lazy-text-reveal', {
+  origin: 'bottom',
+  scale: 1,
+  viewFactor: 0.01,
+  distance: '0px',
+}, 100);

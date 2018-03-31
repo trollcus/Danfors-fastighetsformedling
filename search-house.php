@@ -12,7 +12,7 @@ get_header(); ?>
 	<section id="primary" class="content-area">
 
 		<main id="main" class="site-main">
-			<section class="col-sm-12 hero hero-tillsalu fadeIMG" data-src="/wp-content/uploads/bostad_arkiv_head.jpg">
+			<section class="col-sm-12 hero hero-tillsalu fadeInIMG" data-src="/wp-content/uploads/bostad_arkiv_head.jpg">
 	      <div class="container text-center hero-items">
 	        <h1 class="hero-text"><?php printf( esc_html__( 'Till salu', 'danfors' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 	      </div>

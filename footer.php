@@ -87,6 +87,8 @@
 <!-- Jquery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
 <script type="text/javascript" src="<?php echo get_site_url(); ?>/wp-content/themes/danfors/js/slimbox2.js"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmIkJw5rfPQmYCwkdm3-UqJEZnTSt1pPM"></script>

@@ -12,7 +12,7 @@ get_header(); ?>
 	<section id="primary" class="content-area">
 
 		<main id="main" class="site-main">
-			<section class="hero hero-blog col-sm-12 blog-head fadeIMG" data-src="<?php echo site_url(); ?>/wp-content/themes/danfors/assets/images/blog.jpg">
+			<section class="hero hero-blog col-sm-12 blog-head fadeInIMG" data-src="<?php echo site_url(); ?>/wp-content/themes/danfors/assets/images/blog.jpg">
         <div class="container text-center hero-items">
           <h1 class="hero-text">Vad händer på västkusten?</h1>
 					<p class="lead">Nedan kan ni följa vår resa under våra projekt för att göra västkusten till ett ännu bättre område att bo på</p>

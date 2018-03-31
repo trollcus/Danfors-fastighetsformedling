@@ -17,7 +17,7 @@ get_header(); ?>
 			$first_row = $rows[0];
 			$first_row_image = $first_row['bild_id' ]; // get the first row
 			?>
-      <section class="list-hero fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>" >
+      <section class="list-hero fadeInIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>" >
 
       </section>
       <section class="listing-content">
@@ -27,19 +27,19 @@ get_header(); ?>
 						<li><a href="<?php echo get_site_url(); ?>/till-salu">Till salu</a></li>
 						<li class="active"><?php the_title(); ?></li>
 					</ol>
-            <h1 class="text-center small"><?php echo get_field('adress'); echo ' '; echo get_field('adress_omrade'); echo ' '; echo get_field('adress_kommun'); ?></h1>
-            <h1 class="text-center"><?php the_title(); ?></h1>
-            <p class="text-center lead desc-text"><?php echo get_field('beskrivande_text'); ?></p>
+            <h1 class="text-center small lazy-text-reveal"><?php echo get_field('adress'); echo ' '; echo get_field('adress_omrade'); echo ' '; echo get_field('adress_kommun'); ?></h1>
+            <h1 class="text-center lazy-text-reveal"><?php the_title(); ?></h1>
+            <p class="text-center lead desc-text lazy-text-reveal"><?php echo get_field('beskrivande_text'); ?></p>
 						<?php $price_list = get_field('utgangspris');
 							if(!empty($price_list)): ?>
-            <h2 class="text-center list-price">Utgångspris: <?php
+            <h2 class="text-center list-price lazy-text-reveal">Utgångspris: <?php
 
 									$formatted_price = number_format($price_list, 0, ' ', ' ');
 									echo $formatted_price; ?> :-</h2>
 							<?php endif; ?>
 			        <div class="container-fluid">
               <div class="row desc_agent">
-                <div class="col-sm-12 desc-agent-item">
+                <div class="col-sm-12 desc-agent-item lazy-text-reveal">
                   <?php
 
                     $maklare = get_field('ansvarig_maklare');
@@ -120,7 +120,7 @@ get_header(); ?>
                           <div class="bilder-field">
 
                               <a href="<?php echo $image['url']; ?>" data-rel=”lightbox”>
-                                   <img class="list-img fadeIMG" data-src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $img_field[$imgNr]['img_text']; ?>" />
+                                   <img class="list-img fadeInIMG" data-src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $img_field[$imgNr]['img_text']; ?>" />
                               </a>
                               <p><?php
 															$imageTextAlt = $image['alt'];

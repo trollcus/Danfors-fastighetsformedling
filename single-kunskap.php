@@ -22,7 +22,7 @@ get_header(); ?>
 						<li class="active"><?php the_title(); ?></li>
 					</ol>
           <!-- <h1 class="text-center"><?php the_title() ?></h1> -->
-          <div class="content-kunskap">
+          <div class="content-kunskap lazy-text">
             <?php the_content(); ?>
 
 

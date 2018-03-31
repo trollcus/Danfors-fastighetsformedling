@@ -11,7 +11,7 @@
 
 <div class="article">
   <a href="<?php the_permalink(); ?>">
-    <div class="article-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
+    <div class="article-img fadeInIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
 
   </div></a>
   <div class="article-text">

@@ -22,7 +22,7 @@
  						<li class="active"><?php the_title(); ?></li>
  					</ol>
            <?php $date_post = get_the_date(); ?>
-           <div class="content-kunskap">
+           <div class="content-kunskap lazy-text">
              <?php the_content(); ?>
 
 
@@ -39,7 +39,7 @@
                    setup_postdata( $post );
 
                    ?>
-               <div class="author-img" style="background-image:url(<?php the_post_thumbnail_url( 'full' ); ?>)"></div>
+               <div class="author-img fadeInIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
                <div class="author-blog-info">
                  <div class="author-name">
                    <?php the_title(); ?>

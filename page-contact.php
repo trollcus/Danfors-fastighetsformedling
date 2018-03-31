@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<section class="hero-sub hero-danfors col-sm-12" style="background-image:url('<?php echo the_post_thumbnail_url(); ?>'); background-repeat:no-repeat; background-size:cover;">
+<section class="hero-sub hero-danfors col-sm-12 fadeInIMG" style="background-image:url('<?php echo the_post_thumbnail_url(); ?>'); background-repeat:no-repeat; background-size:cover;">
   <div class="container text-center hero-items">
   </div>
 

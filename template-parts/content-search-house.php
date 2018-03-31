@@ -12,7 +12,7 @@
 <div class="listing-container" id="post-<?php the_ID(); ?>" >
 
 
-  <div class="col-sm-6 col-lg-4 list-item-house">
+  <div class="col-sm-6 col-lg-4 list-item-house search-list">
     <div class="listing">
 
       <a href="<?php the_permalink(); ?>">

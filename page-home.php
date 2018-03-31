@@ -7,8 +7,8 @@ get_header(); ?>
 
 <section class="hero-danfors col-sm-12">
   <div class="container text-center hero-items">
-    <h1 class="hero-text">Välkommen till<br>Danfors Fastighetsförmedling</h1>
-    <a href="<?php echo get_site_url(); ?>/till-salu"><button class="btn btn-danfors-white text-center">Till salu</button></a>
+    <h1 class="hero-text lazy-text-reveal">Välkommen till<br>Danfors Fastighetsförmedling</h1>
+    <a href="<?php echo get_site_url(); ?>/till-salu"><button class="btn btn-danfors-white text-center lazy-text-reveal">Till salu</button></a>
   </div>
 
 
@@ -70,7 +70,7 @@ get_header(); ?>
                   ?>
 
                   <!-- <div class="list-image list-img fadeIMG" data-src="<?php echo 'data:image/jpeg;base64,', $first_row_image ?>"> -->
-                  <div class="list-image list-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
+                  <div class="list-image list-img fadeInIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
                     <!-- <?php the_post_thumbnail(); ?> -->
                   </div>
 
@@ -164,7 +164,7 @@ get_header(); ?>
             <?php while( $member->have_posts() ) : $member->the_post(); ?>
               <div class="article">
                 <a href="<?php the_permalink(); ?>">
-                  <div class="article-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
+                  <div class="article-img fadeInIMG" data-src="<?php the_post_thumbnail_url( 'large' ); ?>">
 
                 </div></a>
                 <div class="article-text">
@@ -222,7 +222,7 @@ get_header(); ?>
         <?php $date_post = get_the_date(); ?>
       <a href="<?php the_permalink(); ?>">
         <div class="blog-card-var">
-          <div class="blog-card-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'medium' ); ?>"></div>
+          <div class="blog-card-img fadeInIMG" data-src="<?php the_post_thumbnail_url( 'medium' ); ?>"></div>
           <h4><?php echo the_title(); ?></h4>
           <div class="col-xs-12 author-section">
             <div class="author-blog">
@@ -236,7 +236,7 @@ get_header(); ?>
                   setup_postdata( $post );
 
                   ?>
-              <div class="author-img fadeIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
+              <div class="author-img fadeInIMG" data-src="<?php the_post_thumbnail_url( 'full' ); ?>"></div>
               <div class="author-blog-info">
                 <div class="author-name">
                   <?php the_title(); ?>
