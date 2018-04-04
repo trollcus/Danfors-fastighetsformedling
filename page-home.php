@@ -153,6 +153,11 @@ get_header(); ?>
   </div>
 </section>
 
+<!-- <section>
+// In preparation for fb feed
+  <?php echo do_shortcode( '[custom-facebook-feed]' ); ?>
+</section> -->
+
 <section class="kunskap-section">
   <div class="container-fluid kunskap-fluid">
     <h1 class="col-sm-12 text-center kunskapsbank-title">Kunskapsbanken</h1>
