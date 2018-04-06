@@ -78,9 +78,9 @@ get_header(); ?>
 
                  <div class="row text-center list-items">
                    <h5><?php
-                   $omrade_house = get_field('adress_omrade');
+                   $omrade_house = get_field('adress');
                    if(!empty($omrade_house)) {
-                     echo get_field('adress_omrade');
+                     echo get_field('adress');
                      echo ', ';
 
                    }
@@ -91,9 +91,14 @@ get_header(); ?>
        									$price_list = get_field('utgangspris');
        									$formatted_price = number_format($price_list, 0, ' ', ' '); ?>
                     <h5 class="list-omrade">
-                    <?php if(!empty($formatted_price) || $formatted_price > "0"): ?>
-
-       									<?php echo $formatted_price; ?> :-<?php endif; ?></h5>
+                    <?php if(!empty($formatted_price) || $formatted_price > "0"){
+                      echo $formatted_price . ':-';
+                    } else {
+                      $price_list = get_field('export_kommersiell_pris');
+                      $formatted_price = number_format($price_list, 0, ' ', ' ');
+                      echo get_field('utgangspris') . ':-';
+                    } ?>
+                  </h5>
                    <div class="col-xs-4">
                      <h5 class="text-center list-text"><span class="glyphicon glyphicon-home"></span>&nbsp; &nbsp;
                        <?php $rum = get_field('antal_rum');

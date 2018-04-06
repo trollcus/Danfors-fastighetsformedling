@@ -77,7 +77,7 @@
 				<p>Detta nyhetsbrev kommer snart</p>
 				<!-- <p>Skriv upp dig på vårt nyhetsbrev</p> -->
 				<!-- <?php echo do_shortcode( '[newsletters_subscribe form=1]' ); ?> -->
-				<input type="text" placeholder="Dinmail@mail.com">
+				<input disabled type="text" placeholder="Dinmail@mail.com">
 				<button>Bekräfta</button>
 			</div>
 		</div>

@@ -18,7 +18,7 @@
     <p class="kunskap-title"><?php echo the_title(); ?></p>
     <!-- <p class="kunskap-exc"></p> -->
     <?php echo the_excerpt() ?>
-    <a href="<? the_permalink(); ?>"><button class="btn btn-primary article-btn">Läs mer</button></a>
+    <a href="<?php the_permalink(); ?>"><button class="btn btn-primary article-btn">Läs mer</button></a>
     <div class="article-row">
       <div class="tags">
         <p><?php $posttags = get_the_tags();
